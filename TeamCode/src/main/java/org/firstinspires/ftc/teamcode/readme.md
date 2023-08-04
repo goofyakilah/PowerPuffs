@@ -114,6 +114,7 @@ To clone TeamCode, do the following:
 
 Note: Some names start with "Team" and others start with "team".  This is intentional.
 
+
 1)  Using your operating system file management tools, copy the whole "TeamCode"
     folder to a sibling folder with a corresponding new name, eg: "Team0417".
 
