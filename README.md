@@ -1365,7 +1365,8 @@ Changes include:
  * Cleaned up build.gradle file.
  * Minor UI and bug fixes for driver station and robot controller apps.
  * Throws error if Ultrasonic sensor (NXT) is not configured for legacy module port 4 or 5.
-
+ertytrew24353654yetrdfx
+ * 
 
 ## Release 15.08.03.001
 
@@ -1381,4 +1382,4 @@ Changes include:
  * The API for the Legacy Module and Core Device Interface Module have been updated.
    - Support for encoders with the Legacy Module is now working.
  * The hardware loop has been updated for better performance.
-akilah is the worst
+akilah sucks
