@@ -4,18 +4,16 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp
-public class MecanumDrive extends OpMode {
+public class CarolinaMecanumDrive extends OpMode {
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
 
     public void moveDriveTrain(){
-        double vertical;
-        double horizontal;
 
-        vertical= gamepad1.left_stick_y;
-        horizontal= gamepad1.left_stick_x;
+        double vertical= gamepad1.left_stick_y;
+       double horizontal= gamepad1.left_stick_x;
         double pivot = gamepad1.right_stick_x;
 
         RFMotor.setPower(pivot+);
