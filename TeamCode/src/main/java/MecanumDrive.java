@@ -3,6 +3,8 @@
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
 @TeleOp
 public class CarolinaMecanumDrive extends OpMode {
     DcMotor RFMotor;
@@ -26,6 +28,9 @@ public class CarolinaMecanumDrive extends OpMode {
         LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
         RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
         LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
+        //reverses right motors: im not sure if they r flipped to begin with lets just test
+      RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+      RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override
