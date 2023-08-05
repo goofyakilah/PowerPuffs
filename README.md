@@ -1373,7 +1373,7 @@ ertytrew24353654yetrdfx
  * New user interfaces for FTC Driver Station and FTC Robot Controller apps.
  * An init() method is added to the OpMode class.
    - For this release, init() is triggered right before the start() method.
-   - Eventually, the init() method will be triggered when the user presses an "INIT" button on driver station.
+   - Eventually, the init() method will be  triggered when the user presses an "INIT" button on driver station.
    - The init() and loop() methods are now required (i.e., need to be overridden in the user's op mode).
    - The start() and stop() methods are optional.
  * A new LinearOpMode class is introduced.
