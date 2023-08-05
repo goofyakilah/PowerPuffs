@@ -10,14 +10,16 @@ public class CarolinaMecanumDrive extends OpMode {
     DcMotor RBMotor;
     DcMotor LBMotor;
 
-    public void moveDriveTrain(){
-
-        double vertical= gamepad1.left_stick_y;
-       double horizontal= gamepad1.left_stick_x;
+    public void moveDriveTrain() {
+        double vertical = gamepad1.left_stick_y;
+        double horizontal = gamepad1.left_stick_x;
         double pivot = gamepad1.right_stick_x;
 
-        RFMotor.setPower(pivot+);
-        RBMotor.setPower(pivot+ );
+        RFMotor.setPower(pivot + (-vertical + horizontal));
+        RBMotor.setPower(pivot + (-vertical - horizontal));
+        LFMotor.setPower(pivot + (-vertical - horizontal));
+        RFMotor.setPower(pivot + (-vertical + horizontal));
+    }
     @Override
     public void init() {
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
