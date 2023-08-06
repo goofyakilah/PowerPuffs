@@ -1341,7 +1341,6 @@ Changes include:
   - More explicit messages during USB failures.
   - Fixed bug so that USB device is closed if event loop teardown method was not called.
  * Fixed timer UI issue
- * 
  * Fixed duplicate name UI bug (Legacy Module configuration).
  * Fixed race condition in EventLoopManager.
  * Fix to keep references stable when updating gamepad.
@@ -1382,4 +1381,3 @@ Changes include:
  * The API for the Legacy Module and Core Device Interface Module have been updated.
    - Support for encoders with the Legacy Module is now working.
  * The hardware loop has been updated for better performance.
-hii!!!!

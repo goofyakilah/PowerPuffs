@@ -2,6 +2,7 @@
 
 Welcome!
 
+
 This module, TeamCode, is the place where you will write/paste the code for your team's
 robot controller App. This module is currently empty (a clean slate) but the
 process for adding OpModes is straightforward.
@@ -113,6 +114,7 @@ To clone TeamCode, do the following:
 
 Note: Some names start with "Team" and others start with "team".  This is intentional.
 
+
 1)  Using your operating system file management tools, copy the whole "TeamCode"
     folder to a sibling folder with a corresponding new name, eg: "Team0417".
 
@@ -131,3 +133,5 @@ Note: Some names start with "Team" and others start with "team".  This is intent
 6)  Open up Android Studios and clean out any old files by using the menu to "Build/Clean Project""
 
 hi my name is akilah and i like programming
+pp
+grand pp
