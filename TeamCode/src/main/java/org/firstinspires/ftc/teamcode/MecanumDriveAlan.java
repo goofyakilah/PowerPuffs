@@ -6,25 +6,27 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-public class MecanumDriveGrace extends OpMode {
+public class MecanumDriveAlan extends OpMode {
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
 
     public void moveDriveTrain() {
-        double vertical = 0;
-        double horizontal = 0;
-        double pivot = 0;
+        float x1 = -gamepad1.left_stick_x;
+        float y1 = gamepad1.left_stick_y;
+        float x2 = gamepad1.right_stick_x;
 
-        vertical = -gamepad1.left_stick_y;
-        horizontal = gamepad1.left_stick_x;
-        pivot = gamepad1.right_stick_x;
+        double fl = x1 + y1 + x2;
+        double bl = -x1 + y1 + x2;
+        double fr = -x1 + y1 - x2;
+        double br = x1 + y1 - x2;
 
-        RFMotor.setPower(pivot + (-vertical + horizontal));
-        RBMotor.setPower(pivot + (-vertical - horizontal));
-        LFMotor.setPower(pivot + (-vertical - horizontal));
-        RFMotor.setPower(pivot + (-vertical + horizontal));
+        LFMotor.setPower(fl);
+        LBMotor.setPower(bl);
+        RFMotor.setPower(fr);
+        RBMotor.setPower(br);
+
     }
     @Override
     public void init() {
@@ -38,13 +40,8 @@ public class MecanumDriveGrace extends OpMode {
     }
 
     @Override
-    public void init_loop(){
-
-    }
-
-    @Override
     public void loop(){
-
+        moveDriveTrain();
     }
 }
 
