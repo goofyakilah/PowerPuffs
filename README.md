@@ -135,8 +135,7 @@ This is a bug fix only release to address the following four issues.
 * Deprecates the `OpMode` methods `internalPreInit()`, `internalPostInitLoop()`, and `internalPostLoop()`.
     * Iterative `OpMode`s will continue to call these methods in case they were overridden.
     * These methods will not be called at all for `LinearOpMode`s.
-* Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`.
-
+* Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`
 ### Enhancements
 * Adds a new `IMU` interface to Blocks and Java that can be used with both the original BNO055 IMU
   included in all older Control Hubs and Expansion Hubs, and the new alternative BHI260AP IMU.
@@ -304,9 +303,8 @@ This is a bug fix only release to address the following four issues.
 * Fixes logspam when `isBusy()` is called on a motor not in RTP mode.
 * Hides the "RC Password" item on the inspection screen for phone-based Robot Controllers. (It is only applicable for Control Hubs).
 * Adds channel 165 to Wi-Fi Direct channel selection menu in the settings screen. (165 was previously available through the web UI, but not locally in the app).
-
-## Version 7.0 (20210915-141025)
-
+ch
+## Version 7.0 (20210915-1
 ### Enhancements and New Features
 * Adds support for external libraries to OnBotJava and Blocks.
     * Upload .jar and .aar files in OnBotJava.
