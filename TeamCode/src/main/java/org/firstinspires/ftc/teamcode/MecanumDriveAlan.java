@@ -13,14 +13,14 @@ public class MecanumDriveAlan extends OpMode {
     DcMotor LBMotor;
 
     public void moveDriveTrain() {
-        float x1 = -gamepad1.left_stick_x;
-        float y1 = gamepad1.left_stick_y;
-        float x2 = gamepad1.right_stick_x;
+        double y = -gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
 
-        double fl = x1 + y1 + x2;
-        double bl = -x1 + y1 + x2;
-        double fr = -x1 + y1 - x2;
-        double br = x1 + y1 - x2;
+        double fl = y + x + rx;
+        double bl = y - x + rx;
+        double fr = y - x - rx;
+        double br = y + x - rx;
 
         LFMotor.setPower(fl);
         LBMotor.setPower(bl);
