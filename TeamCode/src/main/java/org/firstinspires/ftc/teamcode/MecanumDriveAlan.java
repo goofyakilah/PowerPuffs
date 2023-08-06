@@ -12,6 +12,22 @@ public class MecanumDriveAlan extends OpMode {
     DcMotor RBMotor;
     DcMotor LBMotor;
 
+    @Override
+    public void init() {
+        RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
+        LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
+        RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
+        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
+
+        RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+    }
+
+    @Override
+    public void loop(){
+        moveDriveTrain();
+    }
+
     public void moveDriveTrain() {
         double y = -gamepad1.left_stick_y;
         double x = gamepad1.left_stick_x;
@@ -27,21 +43,6 @@ public class MecanumDriveAlan extends OpMode {
         RFMotor.setPower(fr);
         RBMotor.setPower(br);
 
-    }
-    @Override
-    public void init() {
-        RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
-        LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
-        RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
-        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
-
-        RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-    }
-
-    @Override
-    public void loop(){
-        moveDriveTrain();
     }
 }
 
