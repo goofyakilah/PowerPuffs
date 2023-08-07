@@ -12,6 +12,8 @@ public class MecanumDriveAlan extends OpMode {
     DcMotor RBMotor;
     DcMotor LBMotor;
 
+    public float speedMultiplier = 0.5f;
+
     @Override
     public void init() {
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
@@ -29,19 +31,20 @@ public class MecanumDriveAlan extends OpMode {
     }
 
     public void moveDriveTrain() {
-        double y = -gamepad1.left_stick_y;
+        double y = gamepad1.left_stick_y;
         double x = gamepad1.left_stick_x;
         double rx = gamepad1.right_stick_x;
 
         double fl = y + x + rx;
         double bl = y - x + rx;
-        double fr = y - x - rx;
-        double br = y + x - rx;
+        double fr = y + x - rx;
+        double br = y - x - rx;
 
-        LFMotor.setPower(fl);
-        LBMotor.setPower(bl);
-        RFMotor.setPower(fr);
-        RBMotor.setPower(br);
+
+        LFMotor.setPower(fl*speedMultiplier);
+        LBMotor.setPower(bl*speedMultiplier);
+        RFMotor.setPower(fr*speedMultiplier);
+        RBMotor.setPower(br*speedMultiplier);
 
     }
 }
