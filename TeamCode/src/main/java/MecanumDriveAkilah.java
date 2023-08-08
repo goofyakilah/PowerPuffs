@@ -1,31 +1,17 @@
-package org.firstinspires.ftc.teamcode;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-public class MecanumDriveGrace extends OpMode {
+public class MecanumDriveAkilah extends OpMode {
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
 
-    public void moveDriveTrain() {
-        double vertical = 0;
-        double horizontal = 0;
-        double pivot = 0;
+    public float speedMultiplier = 0.5f;
 
-        vertical = -gamepad1.left_stick_y;
-        horizontal = gamepad1.left_stick_x;
-        pivot = gamepad1.right_stick_x;
-
-        RFMotor.setPower(pivot + (-vertical + horizontal));
-        RBMotor.setPower(pivot + (-vertical - horizontal));
-        LFMotor.setPower(pivot + (-vertical - horizontal));
-        RFMotor.setPower(pivot + (-vertical + horizontal));
-    }
     @Override
     public void init() {
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
@@ -38,12 +24,25 @@ public class MecanumDriveGrace extends OpMode {
     }
 
     @Override
-    public void init_loop(){
-
+    public void loop(){
+        moveDriveTrain();
     }
 
-    @Override
-    public void loop(){
+    public void moveDriveTrain() {
+        double y = gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
+
+        double fl = y - x - rx;
+        double bl = y + x - rx;
+        double fr = y + x + rx;
+        double br = y - x + rx;
+
+
+        LFMotor.setPower(fl*speedMultiplier);
+        LBMotor.setPower(bl*speedMultiplier);
+        RFMotor.setPower(fr*speedMultiplier);
+        RBMotor.setPower(br*speedMultiplier);
 
     }
 }
