@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-public class MecanumDrive extends OpMode {
+public class MecanumDriveCAR extends OpMode {
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;

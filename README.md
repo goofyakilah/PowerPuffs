@@ -135,8 +135,7 @@ This is a bug fix only release to address the following four issues.
 * Deprecates the `OpMode` methods `internalPreInit()`, `internalPostInitLoop()`, and `internalPostLoop()`.
     * Iterative `OpMode`s will continue to call these methods in case they were overridden.
     * These methods will not be called at all for `LinearOpMode`s.
-* Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`.
-
+* Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`
 ### Enhancements
 * Adds a new `IMU` interface to Blocks and Java that can be used with both the original BNO055 IMU
   included in all older Control Hubs and Expansion Hubs, and the new alternative BHI260AP IMU.
@@ -304,9 +303,8 @@ This is a bug fix only release to address the following four issues.
 * Fixes logspam when `isBusy()` is called on a motor not in RTP mode.
 * Hides the "RC Password" item on the inspection screen for phone-based Robot Controllers. (It is only applicable for Control Hubs).
 * Adds channel 165 to Wi-Fi Direct channel selection menu in the settings screen. (165 was previously available through the web UI, but not locally in the app).
-
-## Version 7.0 (20210915-141025)
-
+ch
+## Version 7.0 (20210915-1
 ### Enhancements and New Features
 * Adds support for external libraries to OnBotJava and Blocks.
     * Upload .jar and .aar files in OnBotJava.
@@ -1365,15 +1363,14 @@ Changes include:
  * Cleaned up build.gradle file.
  * Minor UI and bug fixes for driver station and robot controller apps.
  * Throws error if Ultrasonic sensor (NXT) is not configured for legacy module port 4 or 5.
-ertytrew24353654yetrdfx
- * 
+
 
 ## Release 15.08.03.001
 
  * New user interfaces for FTC Driver Station and FTC Robot Controller apps.
  * An init() method is added to the OpMode class.
    - For this release, init() is triggered right before the start() method.
-   - Eventually, the init() method will be  triggered when the user presses an "INIT" button on driver station.
+   - Eventually, the init() method will be triggered when the user presses an "INIT" button on driver station.
    - The init() and loop() methods are now required (i.e., need to be overridden in the user's op mode).
    - The start() and stop() methods are optional.
  * A new LinearOpMode class is introduced.
@@ -1382,5 +1379,4 @@ ertytrew24353654yetrdfx
  * The API for the Legacy Module and Core Device Interface Module have been updated.
    - Support for encoders with the Legacy Module is now working.
  * The hardware loop has been updated for better performance.
-grace is cool
-akil
+.
