@@ -1,6 +1,5 @@
-package org.firstinspires.ftc.teamcode; //tells the program where this file is located
+package org.firstinspires.ftc.teamcode;
 
-// import statements
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -25,7 +24,6 @@ public class MecanumDriveSuzy extends OpMode {
         RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
         LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
 
-        //reversing the motors
         RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
@@ -37,14 +35,6 @@ public class MecanumDriveSuzy extends OpMode {
 
     public void moveDriveTrain() {
 
-        //left stick up is move forward
-        //left stick down is move backward
-        //left stick left is strafe left
-        //left stick right is strafe right
-        //right stick left is turn left
-        //right stick right is turn right
-        //i think up is positive and down is negative
-        //i think left is positive and right is negative
         double y = gamepad1.left_stick_y;
         double x = gamepad1.left_stick_x;
         double rx = gamepad1.right_stick_x;
