@@ -54,10 +54,10 @@ public class MecanumDriveCarolina extends OpMode {
         // (if you try to strafe left, the robot strafes right; if you try to strafe right, the robot strafes left
         // if you try to turn left, the robot turns right; if you try to turn right, the robot turns left)
         //change the +s and -s to fix           
-        double fl = y + x + rx;
-        double bl = y - x + rx;
-        double fr = y - x - rx;
-        double br = y + x - rx;
+        double fl = y - x - rx;
+        double bl = y + x - rx;
+        double fr = y + x + rx;
+        double br = y - x + rx;
 
 
         LFMotor.setPower(fl*speedMultiplier);

@@ -44,7 +44,7 @@ public class MecanumDriveGrace extends OpMode {
         //left stick right is strafe right
         //right stick left is turn left
         //right stick right is turn right
-        //i think up is positive and down is negative
+           //i think up is positive and down is negative
         //i think left is positive and right is negative
         double y = gamepad1.left_stick_y;
         double x = gamepad1.left_stick_x;
