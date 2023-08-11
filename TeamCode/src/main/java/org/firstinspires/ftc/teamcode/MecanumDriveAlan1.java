@@ -7,24 +7,26 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp //tells the program that this is a teleop file and will appear in the dropdown for teleop files on the driver station
-public class MecanumDriveGrace extends OpMode {
+public class MecanumDriveAlan1 extends OpMode {
 
     //declare motors
-    DcMotor RFMotor;
     DcMotor LFMotor;
-    DcMotor RBMotor;
     DcMotor LBMotor;
+    DcMotor RFMotor;
+    DcMotor RBMotor;
+
 
     //limit the speed of the motors so we can see which direction the wheels are moving
-    public float speedMultiplier = 0.5f;
+    public float speedMultiplier = 0.30f;
 
     @Override
     public void init() {
         //assigning the motors
-        RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
+
         LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
-        RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
         LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
+        RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
+        RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
 
         //reversing the motors
         RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -46,22 +48,30 @@ public class MecanumDriveGrace extends OpMode {
         //right stick right is turn right
         //i think up is positive and down is negative
         //i think left is positive and right is negative
+
+
         double y = gamepad1.left_stick_y;
-        double x = gamepad1.left_stick_x;
+        double x = gamepad1.left_stick_x* 1.1; // Counteract imperfect strafing
         double rx = gamepad1.right_stick_x;
 
 
-        double fl = y - x - rx;
-        double bl = y + x - rx;
-        double fr = y - x + rx;
-        double br = y + x + rx;
+//i think right now moving forwards and backwards are correct, but strafing and turning are inverted
+// (if you try to strafe left, the robot strafes right; if you try to strafe right, the robot strafes left
+// if you try to turn left, the robot turns right; if you try to turn right, the robot turns left)
+//change the +s and -s to fix
+// Denominator is the largest motor power (absolute value) or 1
+// This ensures all the powers maintain the same ratio, but only when
+// at least one is out of the range [-1, 1]
 
-
-
-        LFMotor.setPower(fl*speedMultiplier);
-        LBMotor.setPower(bl*speedMultiplier);
-        RFMotor.setPower(fr*speedMultiplier);
-        RBMotor.setPower(br*speedMultiplier);
+        double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
+        double fl = speedMultiplier * (y - x - rx) / denominator;
+        double bl = speedMultiplier * (y + x - rx) / denominator;
+        double fr = speedMultiplier * (y - x + rx) / denominator;
+        double br = speedMultiplier * (y + x + rx) / denominator;
+        LFMotor.setPower(fl);
+        LBMotor.setPower(bl);
+        RFMotor.setPower(fr);
+        RBMotor.setPower(br);
 
     }
 }

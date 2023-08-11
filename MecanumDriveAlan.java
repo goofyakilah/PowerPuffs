@@ -1,12 +1,13 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode; //tells the program where this file is located
 
+// import statements
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp
-public class MecanumDriveCarolina extends OpMode {
+@TeleOp //tells the program that this is a teleop file and will appear in the dropdown for teleop files on the driver station
+public class MecanumDriveAlan extends OpMode {
 
     //declare motors
     DcMotor RFMotor;
@@ -53,11 +54,11 @@ public class MecanumDriveCarolina extends OpMode {
         //i think right now moving forwards and backwards are correct, but strafing and turning are inverted
         // (if you try to strafe left, the robot strafes right; if you try to strafe right, the robot strafes left
         // if you try to turn left, the robot turns right; if you try to turn right, the robot turns left)
-        //change the +s and -s to fix           
+        //change the +s and -s to fix
         double fl = y + x + rx;
         double bl = y - x + rx;
-        double fr = y - x - rx;
-        double br = y + x - rx;
+        double fr = y + x - rx;
+        double br = y - x - rx;
 
 
         LFMotor.setPower(fl*speedMultiplier);
@@ -67,3 +68,4 @@ public class MecanumDriveCarolina extends OpMode {
 
     }
 }
+
