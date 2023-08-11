@@ -51,14 +51,10 @@ public class MecanumDriveGrace extends OpMode {
         double rx = gamepad1.right_stick_x;
 
 
-        //i think right now moving forwards and backwards are correct, but strafing and turning are inverted
-        // (if you try to strafe left, the robot strafes right; if you try to strafe right, the robot strafes left
-        // if you try to turn left, the robot turns right; if you try to turn right, the robot turns left)
-        //change the +s and -s to fix
         double fl = y - x - rx;
         double bl = y + x - rx;
-        double fr = y - x + rx;
-        double br = y + x + rx;
+        double fr = y + x + rx;
+        double br = y - x + rx;
 
 
 
