@@ -56,8 +56,8 @@ public class MecanumDriveCarolina extends OpMode {
         //change the +s and -s to fix           
         double fl = y - x - rx;
         double bl = y + x - rx;
-        double fr = y + x + rx;
-        double br = y - x + rx;
+        double fr = y - x + rx;
+        double br = y + x + rx;
 
 
         LFMotor.setPower(fl*speedMultiplier);
