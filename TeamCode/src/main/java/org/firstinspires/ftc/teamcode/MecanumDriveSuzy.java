@@ -11,7 +11,7 @@ public class MecanumDriveSuzy extends OpMode {
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
-
+@Override
     public void moveDriveTrain(){
         double vertical = -gamepad1.left_stick_y;
         double horizontal = gamepad1.left_stick_x;
