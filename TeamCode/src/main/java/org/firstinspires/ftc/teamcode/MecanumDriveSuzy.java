@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode; //tells the program where this file is located
 
+// import statements
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -7,41 +8,59 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class MecanumDriveSuzy extends OpMode {
+
+    //declare motors
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
-@Override
-    public void moveDriveTrain(){
-        double vertical = -gamepad1.left_stick_y;
-        double horizontal = gamepad1.left_stick_x;
-        double pivot = gamepad1.right_stick_x;
 
-       RFMotor.setPower(pivot + (-vertical + horizontal));
-       RBMotor.setPower(pivot + (-vertical - horizontal));
-       LFMotor.setPower(pivot + (-vertical - horizontal));
-       LBMotor.setPower(pivot + (-vertical + horizontal));
-    }
+    public float speedMultiplier = 0.5f;
 
     @Override
     public void init() {
+        //assigning the motors
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
         LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
-        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
         RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
+        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
 
+        //reversing the motors
         RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override
-    public void init_loop() {
-
+    public void loop(){
+        moveDriveTrain();
     }
 
-    @Override
-    public void loop() {
+    public void moveDriveTrain() {
+
+        //left stick up is move forward
+        //left stick down is move backward
+        //left stick left is strafe left
+        //left stick right is strafe right
+        //right stick left is turn left
+        //right stick right is turn right
+        //i think up is positive and down is negative
+        //i think left is positive and right is negative
+        double y = gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
+
+        double fl = y + x + rx;
+        double bl = y - x + rx;
+        double fr = y - x - rx;
+        double br = y + x - rx;
+
+
+        LFMotor.setPower(fl*speedMultiplier);
+        LBMotor.setPower(bl*speedMultiplier);
+        RFMotor.setPower(fr*speedMultiplier);
+        RBMotor.setPower(br*speedMultiplier);
 
     }
-
 }
+
+
