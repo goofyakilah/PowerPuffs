@@ -7,24 +7,20 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class MecanumDriveSuzy extends OpMode {
-
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
 
     public void moveDriveTrain(){
-        double vertical;
-        double horizontal;
-        double pivot;
-        vertical = -gamepad1.left_stick_y;
-        horizontal = gamepad1.left_stick_x;
-        pivot = gamepad1.right_stick_x;
+        double vertical = -gamepad1.left_stick_y;
+        double horizontal = gamepad1.left_stick_x;
+        double pivot = gamepad1.right_stick_x;
 
-       RFMotor.setPower(vertical - horizontal - pivot);
-       RBMotor.setPower(vertical + horizontal - pivot);
-       LFMotor.setPower(vertical + horizontal + pivot);
-       LBMotor.setPower(vertical - horizontal + pivot);
+       RFMotor.setPower(pivot + (-vertical + horizontal));
+       RBMotor.setPower(pivot + (-vertical - horizontal));
+       LFMotor.setPower(pivot + (-vertical - horizontal));
+       LBMotor.setPower(pivot + (-vertical + horizontal));
     }
 
     @Override
