@@ -7,35 +7,63 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class MecanumDriveCarolina extends OpMode {
+
+    //declare motors
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
     DcMotor LBMotor;
 
-    public void moveDriveTrain() {
-        double vertical = gamepad1.left_stick_y;
-        double horizontal = gamepad1.left_stick_x;
-        double pivot = gamepad1.right_stick_x;
+    //limit the speed of the motors so we can see which direction the wheels are moving
+    public float speedMultiplier = 0.5f;
 
-        RFMotor.setPower(pivot + (-vertical + horizontal));
-        RBMotor.setPower(pivot + (-vertical - horizontal));
-        LFMotor.setPower(pivot + (-vertical - horizontal));
-        LBMotor.setPower(pivot + (-vertical + horizontal));
-    }
     @Override
     public void init() {
+        //assigning the motors
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
         LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
         RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
         LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
 
-        //reverses right motors: im not sure if they r flipped to begin with lets just test
-      RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-      RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        //reversing the motors
+        RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override
-    public void loop() {
-moveDriveTrain();
+    public void loop(){ //this is the loop that repeats while the program is running
+        moveDriveTrain();
+    }
+
+    public void moveDriveTrain() {
+
+        //left stick up is move forward
+        //left stick down is move backward
+        //left stick left is strafe left
+        //left stick right is strafe right
+        //right stick left is turn left
+        //right stick right is turn right
+        //i think up is positive and down is negative
+        //i think left is positive and right is negative
+        double y = gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
+
+
+        //i think right now moving forwards and backwards are correct, but strafing and turning are inverted
+        // (if you try to strafe left, the robot strafes right; if you try to strafe right, the robot strafes left
+        // if you try to turn left, the robot turns right; if you try to turn right, the robot turns left)
+        //change the +s and -s to fix           
+        double fl = y + x + rx;
+        double bl = y - x + rx;
+        double fr = y - x - rx;
+        double br = y + x - rx;
+
+
+        LFMotor.setPower(fl*speedMultiplier);
+        LBMotor.setPower(bl*speedMultiplier);
+        RFMotor.setPower(fr*speedMultiplier);
+        RBMotor.setPower(br*speedMultiplier);
+
     }
 }
