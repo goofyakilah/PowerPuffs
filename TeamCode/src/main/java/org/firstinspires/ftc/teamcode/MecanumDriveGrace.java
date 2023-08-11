@@ -51,10 +51,10 @@ public class MecanumDriveGrace extends OpMode {
         double rx = gamepad1.right_stick_x;
 
 
-        double fl = y - x - rx;
-        double bl = y + x - rx;
-        double fr = y - x + rx;
-        double br = y + x + rx;
+        double fl = y + x + rx;
+        double bl = y - x + rx;
+        double fr = y + x - rx;
+        double br = y - x - rx;
 
 
 
