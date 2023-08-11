@@ -37,8 +37,8 @@ public class MecanumDriveAkilah extends OpMode {
 
         double fl = y - x - rx;
         double bl = y + x - rx;
-        double fr = y - x + rx;
-        double br = y + x + rx;
+        double fr = y + x + rx;
+        double br = y - x + rx;
 
 
         LFMotor.setPower(fl*speedMultiplier);
