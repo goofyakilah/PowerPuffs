@@ -13,39 +13,43 @@ public class MecanumDriveSuzy extends OpMode {
     DcMotor RBMotor;
     DcMotor LBMotor;
 
-    public void moveDriveTrain(){
-        double vertical;
-        double horizontal;
-        double pivot;
-        vertical = -gamepad1.left_stick_y;
-        horizontal = gamepad1.left_stick_x;
-        pivot = gamepad1.right_stick_x;
-
-       RFMotor.setPower(vertical - horizontal - pivot);
-       RBMotor.setPower(vertical + horizontal - pivot);
-       LFMotor.setPower(vertical + horizontal + pivot);
-       LBMotor.setPower(vertical - horizontal + pivot);
-    }
+    public float speedMultiplier = 0.5f;
 
     @Override
     public void init() {
+        //assigning the motors
         RFMotor = hardwareMap.get(DcMotor.class, "RFMotor");
         LFMotor = hardwareMap.get(DcMotor.class, "LFMotor");
-        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
         RBMotor = hardwareMap.get(DcMotor.class, "RBMotor");
+        LBMotor = hardwareMap.get(DcMotor.class, "LBMotor");
 
         RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     @Override
-    public void init_loop() {
-
+    public void loop(){
+        moveDriveTrain();
     }
 
-    @Override
-    public void loop() {
+    public void moveDriveTrain() {
+
+        double y = gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double rx = gamepad1.right_stick_x;
+
+        double fl = y + x + rx;
+        double bl = y - x + rx;
+        double fr = y - x - rx;
+        double br = y + x - rx;
+
+
+        LFMotor.setPower(fl*speedMultiplier);
+        LBMotor.setPower(bl*speedMultiplier);
+        RFMotor.setPower(fr*speedMultiplier);
+        RBMotor.setPower(br*speedMultiplier);
 
     }
-
 }
+
+
