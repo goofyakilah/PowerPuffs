@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @TeleOp
 public class MecanumDriveSuzy extends OpMode {
 
-    //declare motors
     DcMotor RFMotor;
     DcMotor LFMotor;
     DcMotor RBMotor;
