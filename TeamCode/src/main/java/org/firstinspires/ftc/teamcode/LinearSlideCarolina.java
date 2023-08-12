@@ -9,13 +9,15 @@ public class LinearSlideCarolina extends OpMode {
     DcMotor liftMotorR;
     double y = gamepad1.left_stick_y;
     public float speedLimiter = 0.25f;
-    public void init() {
 
+    @Override
+    public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         liftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
     }
-        @Override
-        public void loop() {liftArmHigh();}
+    @Override
+    public void loop() {liftArmHigh();}
+
     public void liftArmHigh(){
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * -y);
