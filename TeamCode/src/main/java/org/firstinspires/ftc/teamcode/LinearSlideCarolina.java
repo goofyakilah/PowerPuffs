@@ -18,6 +18,8 @@ public class LinearSlideCarolina extends OpMode {
         public void loop() {liftArmHigh();}
     public void liftArmHigh(){
         liftMotorL.setPower(speedLimiter * y);
+        liftMotorR.setPower(speedLimiter * -y);
+        //CHECK WHICH MOTOR IS NEGATIVE AND WHICH IS POSITIVE!!!!
     }
 
     }
