@@ -84,10 +84,10 @@ public class LinearSlideCarolina extends OpMode {
         }
 
 
+        if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) {
+            liftMotorL.setPower(0);
+            liftMotorR.setPower(0);
 
-            if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) ;
-        liftMotorL.setPower(0);
-        liftMotorR.setPower(0);
-
+        }
     }
 }
