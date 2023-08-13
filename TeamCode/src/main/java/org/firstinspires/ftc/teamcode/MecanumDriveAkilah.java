@@ -36,9 +36,9 @@ public class MecanumDriveAkilah extends OpMode {
         double rx = gamepad1.right_stick_x;
 
         double fl = y - x - rx;
+        double br = y - x + rx;
         double bl = y + x - rx;
         double fr = y + x + rx;
-        double br = y - x + rx;
 
         telemetry.addData("x", x);
         telemetry.addData("fl", fl);
@@ -46,6 +46,12 @@ public class MecanumDriveAkilah extends OpMode {
         telemetry.addData("fr", fr);
         telemetry.addData("br", br);
         telemetry.update();
+
+        telemetry.addData("x",x);
+        telemetry.addData("fl",fl);
+        telemetry.addData("bl",bl);
+        telemetry.addData("fr",fr);
+        telemetry.addData("br",br);
 
 
         LFMotor.setPower(fl*speedMultiplier);

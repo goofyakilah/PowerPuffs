@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class SlideEncoderTest extends OpMode {
@@ -14,11 +15,12 @@ public class SlideEncoderTest extends OpMode {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         liftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
 
-        liftMotorL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        liftMotorR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
+//        liftMotorL.setDirection(DcMotorSimple.Direction.REVERSE);
         //reverse a motor
     }
 
