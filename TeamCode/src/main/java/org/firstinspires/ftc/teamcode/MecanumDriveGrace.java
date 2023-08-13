@@ -16,7 +16,7 @@ public class MecanumDriveGrace extends OpMode {
     DcMotor LBMotor;
 
     //limit the speed of the motors so we can see which direction the wheels are moving
-    public float speedMultiplier = 0.5f;
+
 
     @Override
     public void init() {
