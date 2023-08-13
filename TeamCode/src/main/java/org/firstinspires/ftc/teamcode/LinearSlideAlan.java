@@ -24,6 +24,8 @@ public class LinearSlideAlan extends OpMode{
     public int HIGH = 3500;
 
 
+
+
     @Override
     public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
@@ -31,9 +33,10 @@ public class LinearSlideAlan extends OpMode{
 
         liftMotorL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         liftMotorR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //reverse a motor
 
-        liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
+        liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
     }
     @Override
     public void loop() {
