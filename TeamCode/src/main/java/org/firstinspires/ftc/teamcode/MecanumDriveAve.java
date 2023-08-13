@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-public class powerpuff extends OpMode {
+public class MecanumDriveAve extends OpMode {
     DcMotor RFMotor;
 
     DcMotor LFMotor;
@@ -27,7 +27,10 @@ public class powerpuff extends OpMode {
     }
 
     @Override
-    public void loop() {
+    public void loop(){
+        int targetposition = 500;
+
+    }
         moveDriveTrain();
     }
 
@@ -47,4 +50,4 @@ public class powerpuff extends OpMode {
         RBMotor.setPower(br);
 
     }
-}
+
