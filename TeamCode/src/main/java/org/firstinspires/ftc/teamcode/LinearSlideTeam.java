@@ -8,7 +8,7 @@ public class LinearSlideCarolina extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
     double y = gamepad1.left_stick_y;
-    public float speedLimiter = 0.25f;
+    public float speedLimiter = 0.5f;
 
     @Override
     public void init() {
