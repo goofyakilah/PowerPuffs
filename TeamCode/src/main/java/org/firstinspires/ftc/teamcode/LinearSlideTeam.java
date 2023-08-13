@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class LinearSlideTeam extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
-    double y = gamepad1.left_stick_y;
+
     public float speedLimiter = 0.5f;
 
     @Override
@@ -24,6 +24,7 @@ public class LinearSlideTeam extends OpMode {
     public void loop() {liftArmHigh();}
 
     public void liftArmHigh(){
+        double y = gamepad1.left_stick_y;
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
         //CHECK WHICH MOTOR IS NEGATIVE AND WHICH IS POSITIVE!!!!
