@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+@Disabled
 @TeleOp
 public class LinearSlideAlan extends OpMode{
 
@@ -12,16 +14,18 @@ public class LinearSlideAlan extends OpMode{
     DcMotor liftMotorR;
 
     public double speedLimiter = 0.5;
-    public double power = 0.5;
+    public double power = 0.1;
 
     public int[] values = {0, 1100, 2200, 3500};
     public int currentIndex = 0;
     public int position = 0;
 
     public int GROUND = 0;
-    public int LOW = 1100;
-    public int MID = 2200;
-    public int HIGH = 3500;
+    public int LOW = 500;
+    public int MID = 1000;
+    public int HIGH = 1500;
+
+
 
 
     @Override
@@ -31,17 +35,23 @@ public class LinearSlideAlan extends OpMode{
 
         liftMotorL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         liftMotorR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //reverse a motor
+
+        liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
+
     }
     @Override
     public void loop() {
-        liftController(gamepad1.a, gamepad1.b);
+        liftController(gamepad2.a, gamepad2.b);
         setGround(gamepad1.a);
         setLow(gamepad1.x);
         setMID(gamepad1.b);
         setHIGH(gamepad1.y);
+        telemetry.addData("LEFT", liftMotorL.getCurrentPosition());
+        telemetry.addData("RIGHT", liftMotorR.getCurrentPosition());
+        telemetry.update();
     }
 
     public void setGround(boolean keybind){
@@ -93,8 +103,8 @@ public class LinearSlideAlan extends OpMode{
         } else {
             liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setPower(power*speedLimiter/*powerModifier*/);
-            liftMotorL.setPower(power*speedLimiter/*powerModifier*/);
+            liftMotorR.setPower(power);
+            liftMotorL.setPower(power);
         }
     }
 }
