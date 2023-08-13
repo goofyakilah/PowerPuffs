@@ -16,6 +16,9 @@ public class SlideEncoderTest extends OpMode {
 
         liftMotorL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         liftMotorR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //reverse a motor
     }
 
