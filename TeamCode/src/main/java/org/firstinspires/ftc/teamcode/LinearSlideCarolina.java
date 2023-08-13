@@ -14,6 +14,7 @@ public class LinearSlideCarolina extends OpMode {
     public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         liftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
+
     }
     @Override
     public void loop() {liftArmHigh();}
@@ -22,7 +23,7 @@ public class LinearSlideCarolina extends OpMode {
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * -y);
         //CHECK WHICH MOTOR IS NEGATIVE AND WHICH IS POSITIVE!!!!
-        //ask abt when to stop the motors- either when a certain distance is reached, etc.
+        //stop motors when ---- rotations r made by motor?
     }
 
     }
