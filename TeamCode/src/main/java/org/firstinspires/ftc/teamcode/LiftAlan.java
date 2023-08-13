@@ -33,8 +33,8 @@ public class LiftAlan extends OpMode {
     @Override
     public void loop(){
         if(gamepad1.a && !isMoving) {
-            targetPositionRight = 100;
-            targetPositionLeft = 100;
+            targetPositionRight = 1000;
+            targetPositionLeft = 1000;
             liftMotorL.setTargetPosition(targetPositionLeft);
             liftMotorR.setTargetPosition(targetPositionRight);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
