@@ -21,7 +21,8 @@ public class LinearSlideTeam extends OpMode {
         liftMotorL.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
     }
     @Override
-    public void loop() {liftArmHigh();}
+    public void loop()
+
 
     public void liftArmHigh(){
         double y = gamepad1.left_stick_y;
@@ -31,4 +32,5 @@ public class LinearSlideTeam extends OpMode {
         //stop motors when ---- rotations r made by motor?
     }
 
-    }
+
+}
