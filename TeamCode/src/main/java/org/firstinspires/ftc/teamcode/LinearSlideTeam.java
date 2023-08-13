@@ -26,7 +26,7 @@ public class LinearSlideTeam extends OpMode {
     public void liftArmHigh(){
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
-        //CHECK WHICH MOTOR IS NEGATIVE AND WHICH IS POSITIVE!!!!
+
         //stop motors when ---- rotations r made by motor?
     }
 
