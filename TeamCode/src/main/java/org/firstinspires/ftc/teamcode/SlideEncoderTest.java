@@ -22,7 +22,7 @@ public class SlideEncoderTest extends OpMode {
     @Override
     public void loop() {
         telemetry.addData("encoderLeft", liftMotorL.getCurrentPosition());
-        telemetry.addData("encoderLeft", liftMotorL.getCurrentPosition());
+        telemetry.addData("encoderRight", liftMotorR.getCurrentPosition());
         telemetry.update();
     }
 }
