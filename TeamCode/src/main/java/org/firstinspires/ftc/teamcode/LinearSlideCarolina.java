@@ -52,8 +52,40 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorR.setPower(speed);
 
         }
+        if (bButton && !isMoving) {
+            isMoving = true;
+            int targetPosition = 1000;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
+        if (xButton && !isMoving) {
+            isMoving = true;
+            int targetPosition = 1500;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
+        if (yButton && !isMoving) {
+            isMoving = true;
+            int targetPosition = 2000;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
 
-        if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) ;
+
+
+            if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) ;
         liftMotorL.setPower(0);
         liftMotorR.setPower(0);
 
