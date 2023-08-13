@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
 public class LinearSlideAlan extends OpMode{
@@ -13,14 +14,14 @@ public class LinearSlideAlan extends OpMode{
     public double speedLimiter = 0.5;
     public double power = 0.5;
 
-    public int[] values = {0, 10, 20, 30};
+    public int[] values = {0, 1100, 2200, 3500};
     public int currentIndex = 0;
     public int position = 0;
 
     public int GROUND = 0;
-    public int LOW = 0;
-    public int MID = 0;
-    public int HIGH = 0;
+    public int LOW = 1100;
+    public int MID = 2200;
+    public int HIGH = 3500;
 
 
     @Override
@@ -31,6 +32,8 @@ public class LinearSlideAlan extends OpMode{
         liftMotorL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         liftMotorR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //reverse a motor
+
+        liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
     public void loop() {
