@@ -34,6 +34,7 @@ public class LinearSlideCarolina extends OpMode {
 
         liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
