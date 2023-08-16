@@ -12,7 +12,7 @@ public class LinearSlideGrace extends OpMode {
 
     double y = gamepad1.left_stick_y;
 
-    boolean move = false
+    boolean move = false;
 
     public int low = 500;
     public int medium = 700;
