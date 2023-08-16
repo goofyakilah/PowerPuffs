@@ -15,7 +15,9 @@ public class LinearSlideGrace extends OpMode {
     boolean move = false
 
     public int low = 500;
-    public int medium =  1000;
+    public int medium = 700;
+    public int high =1000;
+    public int zero =0;
 
     public float speedLimiter = 0.5f;
 
@@ -46,6 +48,37 @@ public class LinearSlideGrace extends OpMode {
         liftMotorR.setPower(0.2);
         liftMotorL.setPower(0.2);
         move = true; }
+
+        if (gamepad1.b && !move) {
+            int targetposition = 700;
+            liftMotorL.setTargetPosition(medium);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorR.setTargetPosition(medium);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorR.setPower(0.2);
+            liftMotorL.setPower(0.2);
+            move = true; }
+
+
+            if (gamepad1.a && !move) {
+                int targetposition = 1000;
+                liftMotorL.setTargetPosition(high);
+                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setTargetPosition(high);
+                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setPower(0.2);
+                liftMotorL.setPower(0.2);
+                 move = true; }
+
+                if (gamepad1.a && !move) {
+                    int targetposition = 0;
+                    liftMotorL.setTargetPosition(zero);
+                    liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    liftMotorR.setTargetPosition(zero);
+                    liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    liftMotorR.setPower(0.2);
+                    liftMotorL.setPower(0.2);
+                     move = true; }
 
     if (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
         liftMotorL.setPower(0);
