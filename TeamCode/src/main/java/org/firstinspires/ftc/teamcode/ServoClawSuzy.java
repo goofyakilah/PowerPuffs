@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class ServosSuzy extends OpMode {
+public class ServoClawSuzy extends OpMode {
 
     public Servo servo;
 
