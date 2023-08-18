@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import org.firstinspires.ftc.teamcode.LinearSlideJoystick;
+        import org.firstinspires.ftc.teamcode.LinearSlideJoystick;
         import com.qualcomm.robotcore.eventloop.opmode.OpMode;
         import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
         import com.qualcomm.robotcore.hardware.DcMotor;
@@ -35,6 +35,7 @@ public class LinearSlideSuzy extends OpMode {
     }
     @Override
     public void loop() {
+
         if (gamepad1.a && !push) {
             int setTargetPosition = 0;
             liftMotorL.setTargetPosition(setTargetPosition);
