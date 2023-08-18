@@ -74,6 +74,7 @@ public class LinearSlideSuzy extends OpMode {
             push = true;
         }
 
+
         if (push && !liftMotorL.isBusy() && !liftMotorR.isBusy()) {
             liftMotorL.setPower(0);
             liftMotorR.setPower(0);
