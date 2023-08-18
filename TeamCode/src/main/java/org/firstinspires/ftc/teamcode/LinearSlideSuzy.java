@@ -7,8 +7,7 @@ import org.firstinspires.ftc.teamcode.LinearSlideJoystick;
         import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-
-public class LinearSlideSuzy extends OpMode {
+\public class LinearSlideSuzy extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
     boolean push = false;
