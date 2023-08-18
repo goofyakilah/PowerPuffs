@@ -44,7 +44,7 @@ public class LinearSlideSuzy extends OpMode {
             push = true;
         }
         if (gamepad1.b && !push) {
-            int setTargetPosition = 500;
+            int setTargetPosition = 400;
             liftMotorL.setTargetPosition(setTargetPosition);
             liftMotorR.setTargetPosition(setTargetPosition);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -54,7 +54,7 @@ public class LinearSlideSuzy extends OpMode {
             push = true;
         }
         if (gamepad1.x && !push) {
-            int setTargetPosition = 1000;
+            int setTargetPosition = 800;
             liftMotorL.setTargetPosition(setTargetPosition);
             liftMotorR.setTargetPosition(setTargetPosition);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -64,7 +64,7 @@ public class LinearSlideSuzy extends OpMode {
             push = true;
         }
         if (gamepad1.y && !push) {
-            int setTargetPosition = 1500;
+            int setTargetPosition = 1200;
             liftMotorL.setTargetPosition(setTargetPosition);
             liftMotorR.setTargetPosition(setTargetPosition);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
