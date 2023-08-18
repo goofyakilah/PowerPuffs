@@ -61,7 +61,7 @@ public class LinearSlideGrace extends OpMode {
             move = true; }
 
 
-            if (gamepad1.a && !move) {
+            if (gamepad1.y && !move) {
                 int targetposition = 1000;
                 liftMotorL.setTargetPosition(high);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -71,7 +71,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setPower(0.2);
                  move = true; }
 
-                if (gamepad1.a && !move) {
+                if (gamepad1.x && !move) {
                     int targetposition = 0;
                     liftMotorL.setTargetPosition(zero);
                     liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
