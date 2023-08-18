@@ -13,12 +13,6 @@ public class LinearSlideCarolina extends OpMode {
     DcMotor liftMotorR;
 
     double speed = 0.2;
-
-
-    public boolean xButton = gamepad1.x;
-    public boolean yButton = gamepad1.y;
-    public boolean aButton = gamepad1.a;
-    public boolean bButton = gamepad1.b;
     public boolean isMoving = false;
 
     @Override
@@ -42,7 +36,7 @@ public class LinearSlideCarolina extends OpMode {
     public void loop() {
 
 
-        if (aButton && !isMoving) {
+        if (gamepad1.a && !isMoving) {
             isMoving = true;
             int targetPosition = 500;
             liftMotorR.setTargetPosition(targetPosition);
@@ -53,7 +47,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorR.setPower(speed);
 
         }
-        if (bButton && !isMoving) {
+        if (gamepad1.b && !isMoving) {
             isMoving = true;
             int targetPosition = 1000;
             liftMotorR.setTargetPosition(targetPosition);
@@ -63,7 +57,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorL.setPower(speed);
             liftMotorR.setPower(speed);
         }
-        if (xButton && !isMoving) {
+        if (gamepad1.x && !isMoving) {
             isMoving = true;
             int targetPosition = 1500;
             liftMotorR.setTargetPosition(targetPosition);
@@ -73,7 +67,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorL.setPower(speed);
             liftMotorR.setPower(speed);
         }
-        if (yButton && !isMoving) {
+        if (gamepad1.y && !isMoving) {
             isMoving = true;
             int targetPosition = 2000;
             liftMotorR.setTargetPosition(targetPosition);
