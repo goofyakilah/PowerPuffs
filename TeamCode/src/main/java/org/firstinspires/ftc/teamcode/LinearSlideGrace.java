@@ -10,6 +10,7 @@ public class LinearSlideGrace extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
 
+
     double y = gamepad2.left_stick_y;
 
     boolean move = false;
