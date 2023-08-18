@@ -50,7 +50,7 @@ public class LinearSlideGrace extends OpMode {
         int setTargetPosition = 700;
         liftMotorL.setTargetPosition(setTargetPosition);
         liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition;
+        liftMotorR.setTargetPosition(setTargetPosition);
         liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setPower(0.2);
         liftMotorL.setPower(0.2);
@@ -60,7 +60,7 @@ public class LinearSlideGrace extends OpMode {
         int setTargetPosition= 1000;
         liftMotorL.setTargetPosition(setTargetPosition);
         liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition;
+        liftMotorR.setTargetPosition(setTargetPosition);
         liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setPower(0.2);
         liftMotorL.setPower(0.2);
