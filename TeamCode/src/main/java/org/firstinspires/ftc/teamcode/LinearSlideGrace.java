@@ -12,10 +12,12 @@ public class LinearSlideGrace extends OpMode {
 
     double y = gamepad1.left_stick_y;
 
-    boolean move = false
+    boolean move = false;
 
     public int low = 500;
-    public int medium =  1000;
+    public int medium = 700;
+    public int high =1000;
+    public int zero =0;
 
     public float speedLimiter = 0.5f;
 
@@ -23,6 +25,7 @@ public class LinearSlideGrace extends OpMode {
     public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         liftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
+
         int positionL = liftMotorL.getCurrentPosition();
         int positionR = liftMotorR.getCurrentPosition();
 
@@ -42,6 +45,36 @@ public class LinearSlideGrace extends OpMode {
         liftMotorL.setTargetPosition(low);
         liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setTargetPosition(low);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
+
+    if (gamepad1.b && !move) {
+        int targetposition = 700;
+        liftMotorL.setTargetPosition(medium);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(medium);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
+
+    if (gamepad1.y && !move) {
+        int targetposition = 1000;
+        liftMotorL.setTargetPosition(high);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(high);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
+
+    if (gamepad1.x && !move) {
+        int targetposition = 0;
+        liftMotorL.setTargetPosition(zero);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(zero);
         liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setPower(0.2);
         liftMotorL.setPower(0.2);
