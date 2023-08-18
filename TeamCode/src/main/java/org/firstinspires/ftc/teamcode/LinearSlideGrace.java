@@ -50,36 +50,35 @@ public class LinearSlideGrace extends OpMode {
         liftMotorL.setPower(0.2);
         move = true; }
 
-        if (gamepad1.b && !move) {
-            int targetposition = 700;
-            liftMotorL.setTargetPosition(medium);
-            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setTargetPosition(medium);
-            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setPower(0.2);
-            liftMotorL.setPower(0.2);
-            move = true; }
+    if (gamepad1.b && !move) {
+        int targetposition = 700;
+        liftMotorL.setTargetPosition(medium);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(medium);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
 
+    if (gamepad1.y && !move) {
+        int targetposition = 1000;
+        liftMotorL.setTargetPosition(high);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(high);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
 
-            if (gamepad1.y && !move) {
-                int targetposition = 1000;
-                liftMotorL.setTargetPosition(high);
-                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setTargetPosition(high);
-                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setPower(0.2);
-                liftMotorL.setPower(0.2);
-                 move = true; }
-
-                if (gamepad1.x && !move) {
-                    int targetposition = 0;
-                    liftMotorL.setTargetPosition(zero);
-                    liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    liftMotorR.setTargetPosition(zero);
-                    liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    liftMotorR.setPower(0.2);
-                    liftMotorL.setPower(0.2);
-                     move = true; }
+    if (gamepad1.x && !move) {
+        int targetposition = 0;
+        liftMotorL.setTargetPosition(zero);
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setTargetPosition(zero);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setPower(0.2);
+        liftMotorL.setPower(0.2);
+        move = true; }
 
     if (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
         liftMotorL.setPower(0);
