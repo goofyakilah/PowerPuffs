@@ -15,10 +15,10 @@ public class LinearSlideCarolina extends OpMode {
     double speed = 0.2;
 
 
-    boolean xButton = gamepad1.x;
-    boolean yButton = gamepad1.y;
-    boolean aButton = gamepad1.a;
-    boolean bButton = gamepad1.b;
+    public boolean xButton = gamepad1.x;
+    public boolean yButton = gamepad1.y;
+    public boolean aButton = gamepad1.a;
+    public boolean bButton = gamepad1.b;
     public boolean isMoving = false;
 
     @Override
