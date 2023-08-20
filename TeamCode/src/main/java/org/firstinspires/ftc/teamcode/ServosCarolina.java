@@ -5,11 +5,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class ServosCarolina extends OpMode{
+    public Servo servo;
     @Override
     public void init() {
-        public Servo servo;
-        Claw = hardwareMap.get(Servo.class,"Claw");
-        Servo= hardwareMap.get(Servo.class,"Arm");
+        servo = hardwareMap.get(Servo.class,"Claw");
+        servo = hardwareMap.get(Servo.class,"Arm");
 
     }
 
