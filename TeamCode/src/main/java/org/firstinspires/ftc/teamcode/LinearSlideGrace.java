@@ -25,7 +25,7 @@ public class LinearSlideGrace extends OpMode {
 
         int positionL = liftMotorL.getCurrentPosition();
         int positionR = liftMotorR.getCurrentPosition();
-
+        private static final double SLIDE_POWER = 0.9; // Adjust as needed
         liftMotorR.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
         liftMotorL.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
 
@@ -42,8 +42,8 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
                 liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setPower(0.2);
-                liftMotorL.setPower(0.2);
+                liftMotorR.setPower(SLIDE_POWER);
+                liftMotorL.setPower(SLIDE_POWER);
                 move = true;
         }  else if (gamepad1.b && !move) {
                 int setTargetPosition = 1200;
@@ -51,8 +51,8 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
                 liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setPower(0.2);
-                liftMotorL.setPower(0.2);
+                liftMotorR.setPower(SLIDE_POWER);
+                liftMotorL.setPower(SLIDE_POWER);
                 move = true;
         }   else if (gamepad1.y && !move) {
                 int setTargetPosition= 2000;
@@ -60,8 +60,8 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
                 liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setPower(0.2);
-                liftMotorL.setPower(0.2);
+                liftMotorR.setPower(SLIDE_POWER);
+                liftMotorL.setPower(SLIDE_POWER);
                 move = true;
         }   else if (gamepad1.x && !move) {
                 int setTargetPosition = 0;
@@ -69,8 +69,8 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
                 liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                liftMotorR.setPower(0.2);
-                liftMotorL.setPower(0.2);
+                liftMotorR.setPower(SLIDE_POWER);
+                liftMotorL.setPower(SLIDE_POWER);
                 move = true;
         }   else if (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
                 liftMotorL.setPower(0);
