@@ -14,7 +14,7 @@ public class LinearSlideGrace extends OpMode {
 
     boolean move = false;
 
-
+    static final double SLIDE_POWER = 0.9; // Adjust as needed
     public float speedLimiter = 0.5f;
 
 
@@ -25,7 +25,7 @@ public class LinearSlideGrace extends OpMode {
 
         int positionL = liftMotorL.getCurrentPosition();
         int positionR = liftMotorR.getCurrentPosition();
-        private static final double SLIDE_POWER = 0.9; // Adjust as needed
+
         liftMotorR.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
         liftMotorL.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
 
