@@ -25,10 +25,10 @@ public class ChatGPTLinearSlide extends LinearOpMode {
         LiftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         LiftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
+        }
 
-        waitForStart();
-
-        while (opModeIsActive()) {
+        @Override
+        public void loop() {
             double linearSlidePower = gamepad1.left_stick_y;
 
             LiftMotorR.setPower(linearSlidePower);
@@ -66,9 +66,11 @@ public class ChatGPTLinearSlide extends LinearOpMode {
             } else {
                 LiftMotorR.setPower(0);
                 LiftMotorL.setPower(0);
+                LiftMotorL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                LiftMotorR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
 
-            telemetry.update();
+            telemetry.update();}
         }
     }
 }
