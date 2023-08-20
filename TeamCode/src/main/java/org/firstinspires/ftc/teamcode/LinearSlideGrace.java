@@ -42,16 +42,12 @@ public class LinearSlideGrace extends OpMode {
     public void loop() {
             if (gamepad1.a && !move) {
                 moveSlideToPosition(POSITION_A);
-                move = true;
         }  else if (gamepad1.b && !move) {
                 moveSlideToPosition(POSITION_B);
-                move = true;
         }   else if (gamepad1.y && !move) {
                 moveSlideToPosition(POSITION_Y);
-                move = true;
         }   else if (gamepad1.x && !move) {
                 moveSlideToPosition(POSITION_X);
-
         }   else  {
             liftArmHigh();
         }
@@ -64,6 +60,7 @@ public class LinearSlideGrace extends OpMode {
         liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setPower(SLIDE_POWER);
         liftMotorL.setPower(SLIDE_POWER);
+        move = true;
         while (liftMotorL.isBusy() && liftMotorR.isBusy() && move) {
             // Wait until the motor reaches the target position
         }
@@ -75,16 +72,13 @@ public class LinearSlideGrace extends OpMode {
         move=false;
     }
 
-
-// (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
-
-
-
     public void liftArmHigh(){
         double y = - gamepad1.left_stick_y;
+//        liftMotorL.setPower(y);
+//        liftMotorR.setPower(y);
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
-
+        move=false;
     }
 
 }
