@@ -37,7 +37,7 @@ public class LinearSlideGrace extends OpMode {
     @Override
     public void loop() {
             if (gamepad1.a && !move) {
-                int setTargetPosition = 500;
+                int setTargetPosition = 1500;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
@@ -46,7 +46,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setPower(0.2);
                 move = true;
         }  else if (gamepad1.b && !move) {
-                int setTargetPosition = 700;
+                int setTargetPosition = 1200;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
@@ -55,7 +55,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorL.setPower(0.2);
                 move = true;
         }   else if (gamepad1.y && !move) {
-                int setTargetPosition= 1000;
+                int setTargetPosition= 2000;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 liftMotorR.setTargetPosition(setTargetPosition);
