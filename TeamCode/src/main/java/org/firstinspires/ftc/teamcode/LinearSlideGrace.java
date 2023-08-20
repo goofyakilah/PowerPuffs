@@ -16,6 +16,7 @@ public class LinearSlideGrace extends OpMode {
 
     public float speedLimiter = 0.5f;
 
+
     @Override
     public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
@@ -34,62 +35,56 @@ public class LinearSlideGrace extends OpMode {
     }
     @Override
     public void loop() {
+            if (gamepad2.a && !move) {
+                int setTargetPosition = 500;
+                liftMotorL.setTargetPosition(setTargetPosition);
+                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setTargetPosition(setTargetPosition);
+                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setPower(0.2);
+                liftMotorL.setPower(0.2);
+                move = true;
+        }  else if (gamepad2.b && !move) {
+                int setTargetPosition = 700;
+                liftMotorL.setTargetPosition(setTargetPosition);
+                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setTargetPosition(setTargetPosition);
+                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setPower(0.2);
+                liftMotorL.setPower(0.2);
+                move = true;
+        }   else if (gamepad2.y && !move) {
+                int setTargetPosition= 1000;
+                liftMotorL.setTargetPosition(setTargetPosition);
+                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setTargetPosition(setTargetPosition);
+                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setPower(0.2);
+                liftMotorL.setPower(0.2);
+                move = true;
+        }   else if (gamepad2.x && !move) {
+                int setTargetPosition = 0;
+                liftMotorL.setTargetPosition(setTargetPosition);
+                liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setTargetPosition(setTargetPosition);
+                liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotorR.setPower(0.2);
+                liftMotorL.setPower(0.2);
+                move = true;
+        }   else if (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
+                liftMotorL.setPower(0);
+                liftMotorR.setPower(0);
+                move=false;
+        }   else {
+            liftArmHigh();
+        }
 
-    if (gamepad2.a && !move) {
-        int setTargetPosition = 500;
-        liftMotorL.setTargetPosition(setTargetPosition);
-        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition);
-        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setPower(0.2);
-        liftMotorL.setPower(0.2);
-        move = true; }
-
-    if (gamepad2.b && !move) {
-        int setTargetPosition = 700;
-        liftMotorL.setTargetPosition(setTargetPosition);
-        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition);
-        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setPower(0.2);
-        liftMotorL.setPower(0.2);
-        move = true; }
-
-    if (gamepad2.y && !move) {
-        int setTargetPosition= 1000;
-        liftMotorL.setTargetPosition(setTargetPosition);
-        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition);
-        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setPower(0.2);
-        liftMotorL.setPower(0.2);
-        move = true; }
-
-    if (gamepad2.x && !move) {
-        int setTargetPosition = 0;
-        liftMotorL.setTargetPosition(setTargetPosition);
-        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setTargetPosition(setTargetPosition);
-        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        liftMotorR.setPower(0.2);
-        liftMotorL.setPower(0.2);
-        move = true; }
-
-    if (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
-        liftMotorL.setPower(0);
-        liftMotorR.setPower(0);
-        move=false;
-    }
-
-
-    liftArmHigh();
     }
 
 
     public void liftArmHigh(){
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
-
 
     }
 
