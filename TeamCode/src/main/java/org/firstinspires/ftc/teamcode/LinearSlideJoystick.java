@@ -4,31 +4,27 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp
-public class LinearSlideTeam extends OpMode {
+public class LinearSlideJoystick extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
-
+    double y = gamepad1.left_stick_y;
     public float speedLimiter = 0.5f;
 
     @Override
     public void init() {
         liftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         liftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
-        int positionL = liftMotorL.getCurrentPosition();
-        int positionR = liftMotorR.getCurrentPosition();
 
-        liftMotorR.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
-        liftMotorL.setZeroPowerBehavior((DcMotor.ZeroPowerBehavior.BRAKE));
     }
     @Override
     public void loop() {liftArmHigh();}
 
     public void liftArmHigh(){
-        double y = gamepad1.left_stick_y;
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
+        //right = counter clockwise = positive (up)
+        //left = clockwise = clockwise = negative (up)
 
-        //stop motors when ---- rotations r made by motor?
     }
 
-    }
+}

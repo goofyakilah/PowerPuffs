@@ -27,9 +27,33 @@ public class LiftAlan extends OpMode {
 
         liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
     }
     @Override
     public void loop(){
+        if(gamepad1.a) {
+            liftMotorL.setTargetPosition(0);
+            liftMotorR.setTargetPosition(0);
+            liftMotorL.setPower(0.5);
+            liftMotorR.setPower(0.5);
+        } else if (gamepad1.x) {
+            liftMotorL.setTargetPosition(500);
+            liftMotorR.setTargetPosition(500);
+            liftMotorL.setPower(0.5);
+            liftMotorR.setPower(0.5);
+        } else if (gamepad1.b){
+            liftMotorL.setTargetPosition(1000);
+            liftMotorR.setTargetPosition(1000);
+            liftMotorL.setPower(0.5);
+            liftMotorR.setPower(0.5);
+        } else if (gamepad1.y) {
+            liftMotorL.setTargetPosition(1500);
+            liftMotorR.setTargetPosition(1500);
+            liftMotorL.setPower(0.5);
+            liftMotorR.setPower(0.5);
+        }
 
 
 

@@ -13,12 +13,6 @@ public class LinearSlideCarolina extends OpMode {
     DcMotor liftMotorR;
 
     double speed = 0.2;
-
-
-    boolean xButton = gamepad1.x;
-    boolean yButton = gamepad1.y;
-    boolean aButton = gamepad1.a;
-    boolean bButton = gamepad1.b;
     public boolean isMoving = false;
 
     @Override
@@ -34,6 +28,7 @@ public class LinearSlideCarolina extends OpMode {
 
         liftMotorL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotorR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
@@ -41,7 +36,7 @@ public class LinearSlideCarolina extends OpMode {
     public void loop() {
 
 
-        if (aButton && !isMoving) {
+        if (gamepad1.a && !isMoving) {
             isMoving = true;
             int targetPosition = 500;
             liftMotorR.setTargetPosition(targetPosition);
@@ -52,10 +47,42 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorR.setPower(speed);
 
         }
+        if (gamepad1.b && !isMoving) {
+            isMoving = true;
+            int targetPosition = 1000;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
+        if (gamepad1.x && !isMoving) {
+            isMoving = true;
+            int targetPosition = 1500;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
+        if (gamepad1.y && !isMoving) {
+            isMoving = true;
+            int targetPosition = 2000;
+            liftMotorR.setTargetPosition(targetPosition);
+            liftMotorL.setTargetPosition(targetPosition);
+            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            liftMotorL.setPower(speed);
+            liftMotorR.setPower(speed);
+        }
 
-        if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) ;
-        liftMotorL.setPower(0);
-        liftMotorR.setPower(0);
 
+        if (isMoving && !liftMotorL.isBusy() && !liftMotorL.isBusy()) {
+            liftMotorL.setPower(0);
+            liftMotorR.setPower(0);
+            isMoving = false;
+        }
     }
 }
