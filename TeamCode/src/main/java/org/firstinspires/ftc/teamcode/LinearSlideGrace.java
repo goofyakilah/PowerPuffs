@@ -10,7 +10,7 @@ public class LinearSlideGrace extends OpMode {
     DcMotor liftMotorL;
     DcMotor liftMotorR;
 
-    double y = gamepad2.left_stick_y;
+
 
     boolean move = false;
 
@@ -36,7 +36,7 @@ public class LinearSlideGrace extends OpMode {
     }
     @Override
     public void loop() {
-            if (gamepad2.a && !move) {
+            if (gamepad1.a && !move) {
                 int setTargetPosition = 500;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -45,7 +45,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorR.setPower(0.2);
                 liftMotorL.setPower(0.2);
                 move = true;
-        }  else if (gamepad2.b && !move) {
+        }  else if (gamepad1.b && !move) {
                 int setTargetPosition = 700;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -54,7 +54,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorR.setPower(0.2);
                 liftMotorL.setPower(0.2);
                 move = true;
-        }   else if (gamepad2.y && !move) {
+        }   else if (gamepad1.y && !move) {
                 int setTargetPosition= 1000;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -63,7 +63,7 @@ public class LinearSlideGrace extends OpMode {
                 liftMotorR.setPower(0.2);
                 liftMotorL.setPower(0.2);
                 move = true;
-        }   else if (gamepad2.x && !move) {
+        }   else if (gamepad1.x && !move) {
                 int setTargetPosition = 0;
                 liftMotorL.setTargetPosition(setTargetPosition);
                 liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -84,6 +84,7 @@ public class LinearSlideGrace extends OpMode {
 
 
     public void liftArmHigh(){
+        double y = - gamepad1.left_stick_y;
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
 
