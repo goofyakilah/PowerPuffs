@@ -16,7 +16,7 @@ servo.setPosition(0.5);
 
     @Override
     public void loop() {
-if (gamepad1.left_trigger > 0.`
+if (gamepad1.left_trigger > 0){}
     }
 }
 

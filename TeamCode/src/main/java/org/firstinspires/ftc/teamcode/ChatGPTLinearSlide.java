@@ -14,9 +14,9 @@ public class ChatGPTLinearSlide extends OpMode {
     boolean move = false;
 
     private static final int PositionA = 0;
-    private static final int PositionY = 500;
-    private static final int PositionB = 700;
-    private static final int PositionX = 1000;
+    private static final int PositionY = 1500;
+    private static final int PositionB = 1700;
+    private static final int PositionX = 2000;
 
     public float speedLimiter = 0.5f;
 
@@ -47,15 +47,15 @@ public class ChatGPTLinearSlide extends OpMode {
 
             } else if (gamepad1.y && !move) {
                 targetPosition(PositionY);
-                move = true;
+//                move = true;
 
             } else if (gamepad1.b && !move) {
                 targetPosition(PositionB);
-                move = true;
+ //               move = true;
 
             } else if (gamepad1.x && !move) {
                 targetPosition(PositionX);
-                move = true;
+//                move = true;
 
             } else {
                 LiftArmHigh();
@@ -65,10 +65,10 @@ public class ChatGPTLinearSlide extends OpMode {
 
 
     private void targetPosition(int position) {
-        LiftMotorR.setPower(0.2);
+        LiftMotorR.setPower(0.9);
         LiftMotorR.setTargetPosition(position);
         LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        LiftMotorL.setPower(0.2);
+        LiftMotorL.setPower(0.9);
         LiftMotorL.setTargetPosition(position);
         LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         while (LiftMotorL.isBusy() && LiftMotorR.isBusy() && move){}
