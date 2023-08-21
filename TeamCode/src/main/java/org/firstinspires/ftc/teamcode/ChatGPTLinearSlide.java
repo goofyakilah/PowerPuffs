@@ -1,17 +1,29 @@
 package org.firstinspires.ftc.teamcode;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp
-public class ChatGPTLinearSlide extends LinearOpMode {
+public class ChatGPTLinearSlide extends OpMode {
 
     DcMotor LiftMotorL;
     DcMotor LiftMotorR;
 
+    boolean move = false;
+
+    private static final int PositionA = 0;
+    private static final int PositionY = 500;
+    private static final int PositionB = 700;
+    private static final int PositionX = 1000;
+
+    public float speedLimiter = 0.5f;
+
+
+
     @Override
-    public void runOpMode() {
+    public void init () {
         LiftMotorL = hardwareMap.get(DcMotor.class, "liftMotorL");
         LiftMotorR = hardwareMap.get(DcMotor.class, "liftMotorR");
 
@@ -29,48 +41,50 @@ public class ChatGPTLinearSlide extends LinearOpMode {
 
         @Override
         public void loop() {
-            double linearSlidePower = gamepad1.left_stick_y;
+            if (gamepad1.a && !move) {
+                targetPosition(PositionA);
+                move = true;
 
-            LiftMotorR.setPower(linearSlidePower);
-            LiftMotorL.setPower(linearSlidePower);
+            } else if (gamepad1.y && !move) {
+                targetPosition(PositionY);
+                move = true;
 
+            } else if (gamepad1.b && !move) {
+                targetPosition(PositionB);
+                move = true;
 
-            if (gamepad1.a) {
-                LiftMotorR.setPower(0.2);
-                LiftMotorR.setTargetPosition(0);
-                LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LiftMotorL.setPower(0.2);
-                LiftMotorL.setTargetPosition(0);
-                LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            } else if (gamepad1.y) {
-                LiftMotorR.setPower(0.2);
-                LiftMotorR.setTargetPosition(500);
-                LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LiftMotorL.setPower(0.2);
-                LiftMotorL.setTargetPosition(500);
-                LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            } else if (gamepad1.b) {
-                LiftMotorR.setPower(0.2);
-                LiftMotorR.setTargetPosition(700);
-                LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LiftMotorL.setPower(0.2);
-                LiftMotorL.setTargetPosition(700);
-                LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            } else if (gamepad1.x) {
-                LiftMotorR.setPower(0.2);
-                LiftMotorR.setTargetPosition(1000);
-                LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LiftMotorL.setPower(0.2);
-                LiftMotorL.setTargetPosition(1000);
-                LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            } else if (gamepad1.x && !move) {
+                targetPosition(PositionX);
+                move = true;
+
             } else {
-                LiftMotorR.setPower(0);
-                LiftMotorL.setPower(0);
-                LiftMotorL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-                LiftMotorR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                LiftArmHigh();
             }
 
             telemetry.update();}
-        }
+
+
+    private void targetPosition(int position) {
+        LiftMotorR.setPower(0.2);
+        LiftMotorR.setTargetPosition(position);
+        LiftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        LiftMotorL.setPower(0.2);
+        LiftMotorL.setTargetPosition(position);
+        LiftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        while (LiftMotorL.isBusy() && LiftMotorR.isBusy() && move){}
+        LiftMotorR.setPower(0);
+        LiftMotorL.setPower(0);
+        LiftMotorL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        LiftMotorR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        move = false;
     }
-}
+
+    public void LiftArmHigh(){
+        double y = -gamepad1.left_stick_y;
+        LiftMotorL.setPower(speedLimiter * y);
+        LiftMotorR.setPower(speedLimiter * y);
+
+
+    }
+ }
+
