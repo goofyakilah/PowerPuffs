@@ -26,6 +26,7 @@ public class ServoGrace extends OpMode {
 
     }
 
+
     @Override
     public void loop() {
         if (gamepad1.left_trigger > 0.3) {
