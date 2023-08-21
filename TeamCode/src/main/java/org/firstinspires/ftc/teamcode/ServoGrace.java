@@ -33,7 +33,7 @@ public class ServoGrace extends OpMode {
             servo1.setPosition(0);}
 
         if (gamepad1.right_trigger > 0.3) {
-            servo1.setPosition(0.15);}
+            servo1.setPosition(0.2);}
 
 //        if (gamepad1.a && !move){
 //            servo2.setPosition(0.3);}
