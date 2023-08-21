@@ -29,10 +29,10 @@ public class ServoGrace extends OpMode {
     @Override
     public void loop() {
         if (gamepad1.left_trigger > 0.3) {
-            servo1.setPosition(0.5);}
+            servo1.setPosition(0);}
 
         if (gamepad1.right_trigger > 0.3) {
-            servo1.setPosition(0.3);}
+            servo1.setPosition(0.15);}
 
 //        if (gamepad1.a && !move){
 //            servo2.setPosition(0.3);}
