@@ -20,6 +20,7 @@ public class ServoGrace extends OpMode {
 //        servo2.setDirection(Servo.Direction.REVERSE);
     }
 
+
     @Override
     public void loop() {
         if (gamepad1.left_trigger > 0.3) {
