@@ -13,7 +13,6 @@ public class ServoGrace extends OpMode {
 //    public Servo servo4;
 //    boolean move = false;
 
-
     @Override
     public void init() {
         servo1 = hardwareMap.get(Servo.class, "Claw");
