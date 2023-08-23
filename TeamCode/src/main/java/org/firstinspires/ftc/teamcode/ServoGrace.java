@@ -2,23 +2,24 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class ServoGrace extends OpMode {
 
-//    public Servo servo1;
-//    public Servo servo2;
+    public Servo servo1;
+    public Servo servo2;
     public Servo servo3;
     public Servo servo4;
     boolean move = false;
 
     @Override
     public void init() {
-//        servo1 = hardwareMap.get(Servo.class, "Claw");
-//        servo1.setDirection(Servo.Direction.REVERSE);
-//        servo2 = hardwareMap.get(Servo.class, "Claw");
-//        servo2.setDirection(Servo.Direction.REVERSE);
+        servo1 = hardwareMap.get(Servo.class, "Claw");
+
+        servo2 = hardwareMap.get(Servo.class, "Claw");
+        servo2.setDirection(Servo.Direction.REVERSE);
         servo4 = hardwareMap.get(Servo.class, "claw");
         servo4.setDirection(Servo.Direction.REVERSE);
        servo3 = hardwareMap.get(Servo.class, "Claw");
@@ -28,29 +29,36 @@ public class ServoGrace extends OpMode {
 
     @Override
     public void loop() {
-//        if (gamepad1.left_trigger > 0.3) {
-//            servo1.setPosition(0.15);}
-//
-//        if (gamepad1.right_trigger > 0.3) {
-////            servo1.setPosition(0.38); //max
-//            servo1.setPosition(0.35);
-//            }
-//
-//        if (gamepad1.a && !move){
-//            servo2.setPosition(0);}
 
-//        if (gamepad1.y && !move){
-//            servo2.setPosition(-0.7);}
+        if (gamepad1.left_trigger > 0.3) {
+            servo1.setPosition(0.15);
 
-        if (gamepad1.b && !move){
+        } else if (gamepad1.right_trigger > 0.3) {
+            servo1.setPosition(0.38); //max
+            servo1.setPosition(0.35);
+
+        } else if (gamepad1.a && !move) {
+            servo2.setPosition(0);
+
+        } else if (gamepad1.y && !move) {
+            servo2.setPosition(-0.7);
+
+        } else if (gamepad1.b && !move) {
             servo3.setPosition(0.3);
             servo4.setPosition(0.3);
-            }
 
-        if (gamepad1.x && !move){
+        } else if (gamepad1.x && !move) {
             servo3.setPosition(0);
             servo4.setPosition(0);
-            }
+
+        } else {
+
+
+        }
+
+
+
+
     }
 
     }
