@@ -59,21 +59,15 @@ public class PowerpuffV1 extends OpMode {
 
             if (gamepad1.a && !move) {
                 moveSlideToPosition(POSITION_A); // linear slides
-                move = true;
             }  else if (gamepad1.b && !move) {
                 moveSlideToPosition(POSITION_B); // linear slides
-                move = true;
             }   else if (gamepad1.y && !move) {
                 moveSlideToPosition(POSITION_Y); // linear slides
-                move = true;
             }   else if (gamepad1.x && !move) {
                 moveSlideToPosition(POSITION_X); // linear slides
-
             }   else  {
                 liftArmHigh(); // linear slides
             }
-
-
 
         }
 
@@ -93,7 +87,6 @@ public class PowerpuffV1 extends OpMode {
             RFMotor.setPower(fr*speedMultiplier);
             RBMotor.setPower(br*speedMultiplier);
 
-
             telemetry.addData("y",y);
             telemetry.addData("x",x);
             telemetry.addData("fl",fl);
@@ -102,10 +95,7 @@ public class PowerpuffV1 extends OpMode {
             telemetry.addData("br",br);
             telemetry.update();
 
-
         }
-
-
 
     private void moveSlideToPosition(int targetPosition) {
         liftMotorL.setTargetPosition(targetPosition);
@@ -114,6 +104,7 @@ public class PowerpuffV1 extends OpMode {
         liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setPower(SLIDE_POWER);
         liftMotorL.setPower(SLIDE_POWER);
+        move=true;
         while (liftMotorL.isBusy() && liftMotorR.isBusy() && move) {
             // Wait until the motor reaches the target position
         }
@@ -126,22 +117,12 @@ public class PowerpuffV1 extends OpMode {
     }
 
 
-// (move &&!liftMotorR.isBusy() &&!liftMotorL.isBusy()){
-
-
-
     public void liftArmHigh(){
         double y = - gamepad1.left_stick_y;
         liftMotorL.setPower(speedLimiter * y);
         liftMotorR.setPower(speedLimiter * y);
 
     }
-
-
-
-
-
-
 
 
 }
