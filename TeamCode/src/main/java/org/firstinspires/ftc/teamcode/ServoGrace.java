@@ -16,8 +16,8 @@ public class ServoGrace extends OpMode {
     @Override
     public void init() {
         servo1 = hardwareMap.get(Servo.class, "Claw");
-        servo2 = hardwareMap.get(Servo.class, "claw");
-        servo2.setDirection(Servo.Direction.REVERSE);
+        servo2 = hardwareMap.get(Servo.class, "wrist");
+//        servo2.setDirection(Servo.Direction.REVERSE);
 //        servo4 = hardwareMap.get(Servo.class, "claw");
 ////        servo3.setDirection(Servo.Direction.REVERSE);
 //        servo3 = hardwareMap.get(Servo.class, "Claw");
@@ -39,7 +39,7 @@ public class ServoGrace extends OpMode {
             servo2.setPosition(0);
 
         } if (gamepad1.y && !move) {
-            servo2.setPosition(-0.7);}
+            servo2.setPosition(0.9);}
 //
 //         if (gamepad1.b && !move) {
 //            servo3.setPosition(0.3);

@@ -55,10 +55,10 @@ public class ServoExtra extends OpMode {
 //            servo4.setPosition(0);
 //            move = true;
 
-        } else {
+        } //else {
 
 
-        }
+        //}
 
 
 
