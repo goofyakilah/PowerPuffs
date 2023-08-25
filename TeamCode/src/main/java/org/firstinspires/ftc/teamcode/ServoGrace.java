@@ -9,8 +9,8 @@ public class ServoGrace extends OpMode {
 
     public Servo servo1;
     public Servo servo2;
-    public Servo servo3;
-    public Servo servo4;
+//    public Servo servo3;
+//    public Servo servo4;
     boolean move = false;
 
     @Override
@@ -18,9 +18,9 @@ public class ServoGrace extends OpMode {
         servo1 = hardwareMap.get(Servo.class, "Claw");
         servo2 = hardwareMap.get(Servo.class, "wrist");
         servo2.setDirection(Servo.Direction.REVERSE);
-        servo4 = hardwareMap.get(Servo.class, "arm1");
-        servo3.setDirection(Servo.Direction.REVERSE);
-        servo3 = hardwareMap.get(Servo.class, "arm2");
+//        servo4 = hardwareMap.get(Servo.class, "arm1");
+//        servo3.setDirection(Servo.Direction.REVERSE);
+//        servo3 = hardwareMap.get(Servo.class, "arm2");
 
     }
 
@@ -41,15 +41,15 @@ public class ServoGrace extends OpMode {
         } if (gamepad1.y && !move) {
             servo2.setPosition(-0.7);}
 
-         if (gamepad1.b && !move) {
-            servo3.setPosition(0.3);
-            servo4.setPosition(0.3);
-
-        } if (gamepad1.x && !move) {
-            servo3.setPosition(0);
-            servo4.setPosition(0);
-
-        }
+//         if (gamepad1.b && !move) {
+//            servo3.setPosition(0.3);
+//            servo4.setPosition(0.3);
+//
+//        } if (gamepad1.x && !move) {
+//            servo3.setPosition(0);
+//            servo4.setPosition(0);
+//
+//        }
 
 
         }
