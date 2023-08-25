@@ -6,9 +6,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class ServoClawSuzy extends OpMode {
-
     public Servo servo;
-
     @Override
     public void init() {
         servo = hardwareMap.get(Servo.class,"Servo");
