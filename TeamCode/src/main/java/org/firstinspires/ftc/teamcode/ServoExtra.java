@@ -16,7 +16,6 @@ public class ServoExtra extends OpMode {
     @Override
     public void init() {
 //        servo1 = hardwareMap.get(Servo.class, "Claw");
-//
 //        servo2 = hardwareMap.get(Servo.class, "Claw");
 //        servo2.setDirection(Servo.Direction.REVERSE);
         servo4 = hardwareMap.get(Servo.class, "claw");
