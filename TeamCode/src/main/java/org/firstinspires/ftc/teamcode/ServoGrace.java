@@ -9,47 +9,47 @@ public class ServoGrace extends OpMode {
 
     public Servo servo1;
     public Servo servo2;
-    public Servo servo3;
-    public Servo servo4;
+//    public Servo servo3;
+//    public Servo servo4;
     boolean move = false;
 
     @Override
     public void init() {
         servo1 = hardwareMap.get(Servo.class, "Claw");
-        servo2 = hardwareMap.get(Servo.class, "Claw");
+        servo2 = hardwareMap.get(Servo.class, "claw");
         servo2.setDirection(Servo.Direction.REVERSE);
-        servo4 = hardwareMap.get(Servo.class, "claw");
-        servo4.setDirection(Servo.Direction.REVERSE);
-       servo3 = hardwareMap.get(Servo.class, "Claw");
+//        servo4 = hardwareMap.get(Servo.class, "claw");
+////        servo3.setDirection(Servo.Direction.REVERSE);
+//        servo3 = hardwareMap.get(Servo.class, "Claw");
 
     }
 
 
     @Override
     public void loop() {
-
+//
         if (gamepad1.left_trigger > 0.3) {
             servo1.setPosition(0.15);
 
-        } else if (gamepad1.right_trigger > 0.3) {
-//            servo1.setPosition(0.38); //max
+        } if (gamepad1.right_trigger > 0.3) {
+            servo1.setPosition(0.38); //max
             servo1.setPosition(0.35);
 
-        } else if (gamepad1.a && !move) {
+        } if (gamepad1.a && !move) {
             servo2.setPosition(0);
 
-        } else if (gamepad1.y && !move) {
-            servo2.setPosition(-0.7);
-
-        } else if (gamepad1.b && !move) {
-            servo3.setPosition(0.1);
-            servo4.setPosition(0.1);
-
-        } else if (gamepad1.x && !move) {
-            servo3.setPosition(0);
-            servo4.setPosition(0);
-
-        } else {
+        } if (gamepad1.y && !move) {
+            servo2.setPosition(-0.7);}
+//
+//         if (gamepad1.b && !move) {
+//            servo3.setPosition(0.3);
+//            servo4.setPosition(0.3);
+//
+//        } if (gamepad1.x && !move) {
+//            servo3.setPosition(0);
+//            servo4.setPosition(0);
+//
+//        }
 
 
         }
@@ -59,4 +59,3 @@ public class ServoGrace extends OpMode {
 
     }
 
-    }
