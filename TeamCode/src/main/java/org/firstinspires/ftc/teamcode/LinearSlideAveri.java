@@ -27,7 +27,7 @@ public class LinearSlideAveri extends OpMode {
     @Override
     public void loop() {
     if(gamepad1.a && !move){
-        int targetposition = 500;
+        int targetposition = 1500;
         liftMotorL.setTargetPosition(targetposition);
         liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         liftMotorR.setTargetPosition(targetposition);
@@ -51,6 +51,6 @@ public class LinearSlideAveri extends OpMode {
     boolean x = gamepad1.x;
     boolean a = gamepad1.a;
 
-    public int getTargetposition(){};
+//    public int getTargetposition(){};
 
 }}
