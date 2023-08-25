@@ -12,7 +12,7 @@ public class ServoSuzy extends OpMode {
     @Override
     public void init() {
 //        servo1 = hardwareMap.get(Servo.class,"Claw");
-        servo2 = hardwareMap.get(Servo.class,"Wrist");
+        servo2 = hardwareMap.get(Servo.class,"wrist");
     }
 
     @Override
