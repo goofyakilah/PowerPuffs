@@ -16,11 +16,11 @@ public class ServoClawSuzy extends OpMode {
     public void loop() {
 
     if (gamepad1.left_trigger > 0.3) {
-        servo.setPosition(0.4);
+        servo.setPosition(0.35);
     }
 
     if (gamepad1.right_trigger > 0.3) {
-        servo.setPosition(0.2);
+        servo.setPosition(0.15);
     }
     }
 }
