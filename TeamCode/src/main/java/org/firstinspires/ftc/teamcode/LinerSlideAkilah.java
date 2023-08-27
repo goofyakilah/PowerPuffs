@@ -29,8 +29,8 @@ public class LinerSlideAkilah extends OpMode {
         liftMotorR.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     @Override
-    public void loop() {
-        if (gamepad1.a && !move) {
+    public void loop(){
+        if(gamepad1.a && !move){
             int targetposition = 500;
             liftMotorL.setTargetPosition(targetposition);
             liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -38,65 +38,26 @@ public class LinerSlideAkilah extends OpMode {
             liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             liftMotorR.setPower(0.2);
             liftMotorL.setPower(0.2);
-            move = true;
-        }
+            move = true; }
 
-        if (move && !liftMotorL.isBusy() && !liftMotorR.isBusy()) {
+        if(move &&!liftMotorL.isBusy() &&!liftMotorR.isBusy()){
             liftMotorR.setPower(0);
             liftMotorL.setPower(0);
             move = false;
         }
-
-        if (gamepad1.b && !move) {
-            int targetposition = 1000;
-            liftMotorL.setTargetPosition(targetposition);
-            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setTargetPosition(targetposition);
-            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setPower(0.2);
-            liftMotorL.setPower(0.2);
-            move = true;
-        }
-
-        if (move && !liftMotorL.isBusy() && !liftMotorR.isBusy()) {
-            liftMotorR.setPower(0);
-            liftMotorL.setPower(0);
-            move = false;
-        }
-
-        if (gamepad1.x && !move) {
-            int targetposition = 1500;
-            liftMotorL.setTargetPosition(targetposition);
-            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setTargetPosition(targetposition);
-            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setPower(0.2);
-            liftMotorL.setPower(0.2);
-            move = true;
-        }
-
-        if (move && !liftMotorL.isBusy() && !liftMotorR.isBusy()) {
-            liftMotorR.setPower(0);
-            liftMotorL.setPower(0);
-            move = false;
-        }
-
-        if (gamepad1.y && !move) {
-            int targetposition = 2000;
-            liftMotorL.setTargetPosition(targetposition);
-            liftMotorL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setTargetPosition(targetposition);
-            liftMotorR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            liftMotorR.setPower(0.2);
-            liftMotorL.setPower(0.2);
-            move = true;
-        }
-
-        if (move && !liftMotorL.isBusy() && !liftMotorR.isBusy()) {
-            liftMotorR.setPower(0);
-            liftMotorL.setPower(0);
-            move = false;
-        }
+    }
 
 
-    }}
+
+
+
+
+
+
+    boolean a = gamepad1.a;
+
+
+
+
+    }
+
