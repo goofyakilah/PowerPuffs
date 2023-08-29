@@ -5,8 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCaptureSequence;
-
 @TeleOp
 public class LinearSlideCarolina extends OpMode {
     DcMotor liftMotorL;
@@ -35,7 +33,6 @@ public class LinearSlideCarolina extends OpMode {
     @Override
     public void loop() {
 
-
         if (gamepad1.a && !isMoving) {
             isMoving = true;
             int targetPosition = 500;
@@ -47,7 +44,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorR.setPower(speed);
 
         }
-        if (gamepad1.b && !isMoving) {
+        else if (gamepad1.b && !isMoving) {
             isMoving = true;
             int targetPosition = 1000;
             liftMotorR.setTargetPosition(targetPosition);
@@ -57,7 +54,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorL.setPower(speed);
             liftMotorR.setPower(speed);
         }
-        if (gamepad1.x && !isMoving) {
+        else if (gamepad1.x && !isMoving) {
             isMoving = true;
             int targetPosition = 1500;
             liftMotorR.setTargetPosition(targetPosition);
@@ -67,7 +64,7 @@ public class LinearSlideCarolina extends OpMode {
             liftMotorL.setPower(speed);
             liftMotorR.setPower(speed);
         }
-            if (gamepad1.y && !isMoving) {
+            else if (gamepad1.y && !isMoving) {
                 isMoving = true;
                 int targetPosition = 2000;
                 liftMotorR.setTargetPosition(targetPosition);

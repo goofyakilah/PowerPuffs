@@ -11,7 +11,6 @@ public class ServosCarolina extends OpMode{
         servo = hardwareMap.get(Servo.class,"Claw");
         servo = hardwareMap.get(Servo.class,"Arm");
 servo.setDirection(Servo.Direction.REVERSE);
-servo.setPosition(0.5);
     }
 
     @Override
