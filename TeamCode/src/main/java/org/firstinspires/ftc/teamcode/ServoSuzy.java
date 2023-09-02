@@ -29,7 +29,7 @@ public class ServoSuzy extends OpMode {
         servo2.setPosition(0);
     }
     if (gamepad1.b && !push) {
-        servo2.setPosition(-0.7);
+        servo2.setPosition(0.9);
     }
     }
 }
