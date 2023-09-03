@@ -8,8 +8,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.SensorREV2mDistanc
 
 @TeleOp
 public class DistanceSensor extends OpMode {
-    public DcMotor LBMotor;
-    public SensorREV2mDistance DS;
+    private DcMotor LBMotor;
+   private SensorREV2mDistance DS;
+    private double distance;
 
     @Override
     public void init() {
