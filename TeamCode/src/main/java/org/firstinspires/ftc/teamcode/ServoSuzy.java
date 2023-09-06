@@ -27,7 +27,7 @@ public class ServoSuzy extends OpMode {
 
     if (gamepad1.left_trigger > 0.3) {
         servo1.setPosition(0.35);
-    }
+    }  else if ()
 
     if (gamepad1.right_trigger > 0.3) {
         servo1.setPosition(0.15);
