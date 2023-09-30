@@ -18,7 +18,7 @@ public class ActiveIntakeTesting extends OpMode {
     public void loop() {
     double leftTrigger = gamepad1.left_trigger;
     double y = gamepad1.right_stick_y;
-    IntakeMotor.setPower(SpeedLimiter * y);
+    IntakeMotor.setPower(SpeedLimiter * -y);
     }
 }
 
