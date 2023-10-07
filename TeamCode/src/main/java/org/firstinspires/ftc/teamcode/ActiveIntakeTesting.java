@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp
 public class ActiveIntakeTesting extends OpMode {
     DcMotor IntakeMotor;
-    public double SpeedLimiter = 0.5;
+    public float SpeedLimiter = 0.5F;
     @Override
     public void init() {
 
@@ -17,8 +17,8 @@ public class ActiveIntakeTesting extends OpMode {
     @Override
     public void loop() {
     double leftTrigger = gamepad1.left_trigger;
-    double y = gamepad1.right_stick_y;
-    IntakeMotor.setPower(SpeedLimiter * -y);
+    double y = -gamepad1.right_stick_y;
+    IntakeMotor.setPower(SpeedLimiter * y);
     }
 }
 
