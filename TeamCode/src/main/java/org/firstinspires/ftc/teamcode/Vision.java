@@ -29,7 +29,6 @@ public class Vision  extends LinearOpMode {
                 .setDrawTagOutline(true)
                 .setTagFamily(AprilTagProcessor.TagFamily.TAG_36h11)
                 .setTagLibrary(AprilTagGameDatabase.getCenterStageTagLibrary())
-                //put set lens intrinsics HERE GRACIE POO
                 .build();
 
         VisionPortal visionPortal = new VisionPortal.Builder()
