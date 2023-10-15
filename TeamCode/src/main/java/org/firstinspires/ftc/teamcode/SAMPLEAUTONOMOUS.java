@@ -77,6 +77,7 @@ public class SAMPLEAUTONOMOUS extends LinearOpMode {
             }
         });
 
+
         telemetry.setMsTransmissionInterval(50);
 
         //roadrunner stuff
