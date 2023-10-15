@@ -6,19 +6,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 public class ActiveIntakeTesting extends OpMode {
-    DcMotor IntakeMotor;
-    public float SpeedLimiter = 0.5F;
+    DcMotor intakemotor;
+    public double SpeedLimiter = 1.0;
     @Override
     public void init() {
 
-    IntakeMotor= hardwareMap.get(DcMotor.class,"IntakeMotor");
+    intakemotor= hardwareMap.get(DcMotor.class,"intake");
     }
 
     @Override
     public void loop() {
     double leftTrigger = gamepad1.left_trigger;
-    double y = -gamepad1.right_stick_y;
-    IntakeMotor.setPower(SpeedLimiter * y);
+    double y = gamepad1.right_stick_y;
+    intakemotor.setPower(SpeedLimiter * -y);
     }
 }
 
