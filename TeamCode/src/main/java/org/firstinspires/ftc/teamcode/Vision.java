@@ -51,11 +51,11 @@ public class Vision  extends LinearOpMode {
         while(!isStopRequested() && opModeIsActive()) {
             if (tagProcessor.getDetections().size()> 0) {
                 AprilTagDetection tag1 = tagProcessor.getDetections().get(0);
-                AprilTagDetection tag2 = tagProcessor.getDetections().get(0);
-                AprilTagDetection tag3 = tagProcessor.getDetections().get(0);
-                AprilTagDetection tag4 = tagProcessor.getDetections().get(0);
-                AprilTagDetection tag5 = tagProcessor.getDetections().get(0);
-                AprilTagDetection tag6 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag2 = tagProcessor.getDetections().get(1);
+                AprilTagDetection tag3 = tagProcessor.getDetections().get(2);
+                AprilTagDetection tag4 = tagProcessor.getDetections().get(3);
+                AprilTagDetection tag5 = tagProcessor.getDetections().get(4);
+                AprilTagDetection tag6 = tagProcessor.getDetections().get(5);
 
                 telemetry.addData("id", tag1.id);
                 telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag1.ftcPose.x, tag1.ftcPose.y, tag1.ftcPose.z));
