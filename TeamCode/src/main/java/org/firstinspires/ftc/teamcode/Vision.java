@@ -50,15 +50,43 @@ public class Vision  extends LinearOpMode {
 
         while(!isStopRequested() && opModeIsActive()) {
             if (tagProcessor.getDetections().size()> 0) {
-                AprilTagDetection tag = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag1 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag2 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag3 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag4 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag5 = tagProcessor.getDetections().get(0);
+                AprilTagDetection tag6 = tagProcessor.getDetections().get(0);
 
-                telemetry.addData("id", tag.id);
-                telemetry.addData("x", tag.ftcPose.x);
-                telemetry.addData("y", tag.ftcPose.y);
-                telemetry.addData("z", tag.ftcPose.z);
-                telemetry.addData("roll", tag.ftcPose.roll);
-                telemetry.addData("pitch", tag.ftcPose.pitch);
-                telemetry.addData("yaw", tag.ftcPose.yaw);
+                telemetry.addData("id", tag1.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag1.ftcPose.x, tag1.ftcPose.y, tag1.ftcPose.z));
+                telemetry.addData("roll", tag1.ftcPose.roll);
+                telemetry.addData("pitch", tag1.ftcPose.pitch);
+                telemetry.addData("yaw", tag1.ftcPose.yaw);
+                telemetry.addData("id", tag2.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag2.ftcPose.x, tag2.ftcPose.y, tag2.ftcPose.z));
+                telemetry.addData("roll", tag2.ftcPose.roll);
+                telemetry.addData("pitch", tag2.ftcPose.pitch);
+                telemetry.addData("yaw", tag2.ftcPose.yaw);
+                telemetry.addData("id", tag3.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag3.ftcPose.x, tag3.ftcPose.y, tag3.ftcPose.z));
+                telemetry.addData("roll", tag3.ftcPose.roll);
+                telemetry.addData("pitch", tag3.ftcPose.pitch);
+                telemetry.addData("yaw", tag3.ftcPose.yaw);
+                telemetry.addData("id", tag4.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag4.ftcPose.x, tag4.ftcPose.y, tag4.ftcPose.z));
+                telemetry.addData("roll", tag4.ftcPose.roll);
+                telemetry.addData("pitch", tag4.ftcPose.pitch);
+                telemetry.addData("yaw", tag4.ftcPose.yaw);
+                telemetry.addData("id", tag5.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag5.ftcPose.x, tag5.ftcPose.y, tag5.ftcPose.z));
+                telemetry.addData("roll", tag5.ftcPose.roll);
+                telemetry.addData("pitch", tag5.ftcPose.pitch);
+                telemetry.addData("yaw", tag5.ftcPose.yaw);
+                telemetry.addData("id", tag6.id);
+                telemetry.addLine(String.format("XYZ %6.2f %6.2f %6.2f", tag6.ftcPose.x, tag6.ftcPose.y, tag6.ftcPose.z));
+                telemetry.addData("roll", tag6.ftcPose.roll);
+                telemetry.addData("pitch", tag6.ftcPose.pitch);
+                telemetry.addData("yaw", tag6.ftcPose.yaw);
             }
             telemetry.update();
         }
