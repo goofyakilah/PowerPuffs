@@ -83,7 +83,7 @@ public class Vision  extends LinearOpMode {
                      telemetry.addData("id", detection.id);
                      telemetry.addLine("no valid pose data");
                  }
-             }
+             };
 
 
 
