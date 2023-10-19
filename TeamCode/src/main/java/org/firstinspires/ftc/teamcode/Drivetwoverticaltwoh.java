@@ -22,15 +22,23 @@ public class Drivetwoverticaltwoh extends OpMode {
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
+    @Override
+    public void loop(){
+
+        moveDriveTrain();
+
+
+    }
+
     public void moveDriveTrain() {
         double y = gamepad1.left_stick_y;
         double x = gamepad1.left_stick_x;
         double rx = gamepad1.right_stick_x;
 
-        double fl = y + x + rx;
-        double bl = y - x + rx;
-        double fr = y - x - rx;
-        double br = y + x - rx;
+        double fl = y - x - rx;
+        double bl = y + x - rx;
+        double fr = y + x + rx;
+        double br = y - x + rx;
 
         LFMotor.setPower(fl*speedMultiplier);
         LBMotor.setPower(bl*speedMultiplier);
