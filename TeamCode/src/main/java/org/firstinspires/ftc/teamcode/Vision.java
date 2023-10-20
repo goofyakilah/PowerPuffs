@@ -48,7 +48,7 @@ public class Vision  extends LinearOpMode {
         VisionPortal visionPortal = new VisionPortal.Builder()
                 .addProcessor(tagProcessor)
                 .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
-                .setCameraResolution(new Size(640, 480))
+                .setCameraResolution(new android.util.Size(640, 480))
                 .setStreamFormat(VisionPortal.StreamFormat.MJPEG)
                 .build();
 
