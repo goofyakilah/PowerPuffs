@@ -93,7 +93,7 @@ import java.util.concurrent.TimeUnit;
 public class RobotAutoDriveToAprilTagOmni extends LinearOpMode
 {
     // Adjust these numbers to suit your robot.
-    final double DESIRED_DISTANCE = 36.0; //  this is how close the camera should get to the target (inches)
+    final double DESIRED_DISTANCE = 2.0; //  this is how close the camera should get to the target (inches)
 
     //  Set the GAIN constants to control the relationship between the measured position error, and how much power is
     //  applied to the drive motors to correct the error.
@@ -228,10 +228,24 @@ public class RobotAutoDriveToAprilTagOmni extends LinearOpMode
      */
     public void moveRobot(double x, double y, double yaw) {
         // Calculate wheel powers.
-        double leftFrontPower    =  x -y -yaw;
-        double rightFrontPower   =  x +y +yaw;
-        double leftBackPower     =  x +y -yaw;
-        double rightBackPower    =  x -y +yaw;
+
+          double leftFrontPower    =  x +y +yaw;
+          double rightFrontPower   =  x -y -yaw;
+          double leftBackPower     =  x -y +yaw;
+          double rightBackPower    =  x +y -yaw;
+//        double fl = y + x + rx;
+//        double bl = y - x + rx;
+//        double fr = y - x - rx;
+//        double br = y + x - rx;
+// good for our team
+
+//original set up
+//        double leftFrontPower    =  x -y -yaw;
+//        double rightFrontPower   =  x +y +yaw;
+//        double leftBackPower     =  x +y -yaw;
+//        double rightBackPower    =  x -y +yaw;
+//original set up
+
 
         // Normalize wheel powers to be less than 1.0
         double max = Math.max(Math.abs(leftFrontPower), Math.abs(rightFrontPower));
