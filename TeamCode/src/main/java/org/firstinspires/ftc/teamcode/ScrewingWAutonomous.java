@@ -35,7 +35,17 @@ public class ScrewingWAutonomous extends LinearOpMode {
         LBMotor.setPower(0);
 
         //test function
-
+        public void moveForward (int power, int time){
+            RFMotor.setPower(power);
+            LFMotor.setPower(power);
+            RBMotor.setPower(power);
+            LBMotor.setPower(power);
+            sleep(time);
+            RFMotor.setPower(0);
+            LFMotor.setPower(0);
+            RBMotor.setPower(0);
+            LBMotor.setPower(0);
+        }
 
     }
 }
