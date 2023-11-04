@@ -21,7 +21,6 @@ public class OpenCVDetectionCarolina extends OpenCvPipeline {
     public static double MAXIMUM_RED_HIGH_HUE = 255;
     Telemetry telemetry;
     Mat mat = new Mat();
-
     public enum Location {
         Left,
         Right,
