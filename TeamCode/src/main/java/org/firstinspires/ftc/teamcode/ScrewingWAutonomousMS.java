@@ -23,7 +23,7 @@ public class ScrewingWAutonomousMS extends LinearOpMode {
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
-
+// test this out? see how time functions as a measure and if functions are ok
         moveForward(0.5, 1000);
         turnLeft(0.5, 1000);
         moveForward(0.5, 500);
