@@ -9,7 +9,7 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 
-public class OpenCVDetectionCarolina extends OpenCvPipeline {
+public class CenterStageCVDetection extends OpenCvPipeline {
     public static boolean DETECT_RED = true;
     public static double MINIMUM_VALUES = 100;
     public static double MAXIMUM_VALUES = 255;
@@ -33,7 +33,7 @@ public class OpenCVDetectionCarolina extends OpenCvPipeline {
     static final Rect Middle_ROI = new Rect(new Point(120, 100), new Point(205, 200));
     static final Rect Right_ROI = new Rect(new Point(220, 100), new Point(310, 200));
 
-    public OpenCVDetectionCarolina(Telemetry t) {
+    public CenterStageCVDetection(Telemetry t) {
         telemetry = t;
     }
 
@@ -63,7 +63,6 @@ public class OpenCVDetectionCarolina extends OpenCvPipeline {
         Mat left = mat.submat(Left_ROI);
         Mat right = mat.submat(Right_ROI);
         Mat middle = mat.submat(Middle_ROI);
-
         double leftValue = Core.sumElems(left).val[0];
         double rightValue = Core.sumElems(right).val[0];
         double middleValue = Core.sumElems(middle).val[0];
