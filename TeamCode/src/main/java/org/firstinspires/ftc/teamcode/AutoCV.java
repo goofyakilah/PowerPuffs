@@ -12,9 +12,9 @@ public class AutoCV extends LinearOpMode {
     OpenCvWebcam camera;
     @Override
     public void runOpMode() throws InterruptedException {
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", "idk");
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         CenterStageCVDetection detector = new CenterStageCVDetection(telemetry);
-    camera.setPipeline(detector);
+        camera.setPipeline(detector);
     }
 }
