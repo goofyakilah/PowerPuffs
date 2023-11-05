@@ -28,8 +28,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
             LFMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             RBMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             LBMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            int double distance = 2;
-            int double power = 0.5;
 
             waitForStart();
 
@@ -44,7 +42,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
             LBMotor.setPower(0);
 
             //test function
-            public void moveForward(int distance, int power){
+            public void moveForward(int distance)(int power){
                 RFMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 LFMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 RBMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
