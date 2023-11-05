@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @Autonomous
-public class ScrewingWAutonomous extends LinearOpMode {
+public class ScrewingWAutonomousMS extends LinearOpMode {
 
     DcMotor RFMotor;
     DcMotor LFMotor;
@@ -22,30 +22,38 @@ public class ScrewingWAutonomous extends LinearOpMode {
         RFMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         RBMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
- waitForStart();
+        waitForStart();
 
-        RFMotor.setPower(1);
-        LFMotor.setPower(1);
-        RBMotor.setPower(1);
-        LBMotor.setPower(1);
-        sleep(1000);
+        moveForward(0.5, 1000);
+        turnLeft(0.5, 1000);
+        moveForward(0.5, 500);
+        turnLeft(0.5, 1000);
+        moveForward(0.5, 1000);
+        turnLeft(0.5, 1000);
+        moveForward(0.5, 500);
+        //test functions
+    }
+
+    public void moveForward(double power, int time) {
+        RFMotor.setPower(power);
+        LFMotor.setPower(power);
+        RBMotor.setPower(power);
+        LBMotor.setPower(power);
+        sleep(time);
         RFMotor.setPower(0);
         LFMotor.setPower(0);
         RBMotor.setPower(0);
         LBMotor.setPower(0);
-
-        //test function
-        public void moveForward (int power, int time){
-            RFMotor.setPower(power);
-            LFMotor.setPower(power);
-            RBMotor.setPower(power);
-            LBMotor.setPower(power);
-            sleep(time);
-            RFMotor.setPower(0);
-            LFMotor.setPower(0);
-            RBMotor.setPower(0);
-            LBMotor.setPower(0);
-        }
-
+    }
+    public void turnLeft(double power, int time) {
+        RFMotor.setPower(-power);
+        LFMotor.setPower(power);
+        RBMotor.setPower(-power);
+        LBMotor.setPower(power);
+        sleep(time);
+        RFMotor.setPower(0);
+        LFMotor.setPower(0);
+        RBMotor.setPower(0);
+        LBMotor.setPower(0);
     }
 }
