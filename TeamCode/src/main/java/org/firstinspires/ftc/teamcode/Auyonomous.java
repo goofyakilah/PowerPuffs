@@ -31,26 +31,18 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
             waitForStart();
 
-            RFMotor.setPower(1);
-            LFMotor.setPower(1);
-            RBMotor.setPower(1);
-            LBMotor.setPower(1);
-            sleep(1000);
-            RFMotor.setPower(0);
-            LFMotor.setPower(0);
-            RBMotor.setPower(0);
-            LBMotor.setPower(0);
 
-            //test function
-            public void moveForward(int distance)(int power){
+
+            //test function]
+            public void moveForward(double distance, int power) {
                 RFMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 LFMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 RBMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 LBMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                RFMotor.setTargetPosition(distance);
-                RBMotor.setTargetPosition(distance);
-                LFMotor.setTargetPosition(distance);
-                LBMotor.setTargetPosition(distance);
+                RFMotor.setTargetPosition((int) distance);
+                RBMotor.setTargetPosition((int) distance);
+                LFMotor.setTargetPosition((int) distance);
+                LBMotor.setTargetPosition((int) distance);
                 RFMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LFMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 RBMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -69,7 +61,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 
         }
+
     }
 
 
-}
+
